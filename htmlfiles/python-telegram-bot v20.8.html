@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html class="" data-content_root="./" lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link href="cid:css-e1d841d5-c33d-4106-9efb-118f542570e5@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-c182bbc5-4fb5-4032-bf77-001b894f4bee@mhtml.blink" rel="stylesheet" type="text/css"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/genindex.html" rel="index" title="Index"/><link href="https://docs.python-telegram-bot.org/en/v20.8/search.html" rel="search" title="Search"/><link href="https://docs.python-telegram-bot.org/en/v20.8/telegram.html" rel="next" title="telegram package"/>
+<link href="https://docs.python-telegram-bot.org/index.html" rel="canonical"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/ptb-logo_1024.ico" rel="shortcut icon"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+<title>python-telegram-bot v20.8</title>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/styles/furo.css?v=135e06be" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/tabs.css?v=4c969af8" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/sphinx_paramlinks.css" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/css/rtd_sphinx_search.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/_/static/css/badge_only.css" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/styles/furo-extensions.css?v=36a5483c" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_external_link.css?v=7325490a" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_mermaid_diagrams.css?v=f24e364f" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_sidebar_brand.css?v=b76f104a" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_general.css?v=2207ac1d" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_admonitions.css?v=78e3e3d4" rel="stylesheet" type="text/css"/>
+<link href="https://docs.python-telegram-bot.org/en/v20.8/_static/style_images.css?v=1ace4838" rel="stylesheet" type="text/css"/>
+<!-- RTD Extra Head -->
+<link href="https://docs.python-telegram-bot.org/_/static/css/readthedocs-doc-embed.css" rel="stylesheet" type="text/css"/>
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<!-- end RTD <extrahead> -->
+</head>
+<body data-theme="auto">
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Contents</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Menu</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Expand</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Light mode</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Dark mode</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-half" viewbox="0 0 24 24">
+<title>Auto light/dark mode</title>
+<svg class="icon-tabler-shadow" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M13 12h5"></path>
+<path d="M13 15h4"></path>
+<path d="M13 18h1"></path>
+<path d="M13 9h4"></path>
+<path d="M13 6h1"></path>
+</svg>
+</symbol>
+</svg>
+<input class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation">
+<div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+<div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+<div class="announcement">
+<aside class="announcement-content">
+     PTB has undergone significant changes in v20. Please read the documentation carefully and also check out the transition guide in the <a href="https://github.com/python-telegram-bot/python-telegram-bot/wiki/Transition-guide-to-Version-20.0">wiki</a>. 
+  </aside>
+</div>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<div class="visually-hidden">Toggle site navigation sidebar</div>
+<i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+</label>
+</div>
+<div class="header-center">
+<a href="https://docs.python-telegram-bot.org/en/v20.8/#"><div class="brand">python-telegram-bot<br/> v20.8</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button class="theme-toggle">
+<div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+<svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<div class="visually-hidden">Toggle table of contents sidebar</div>
+<i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="https://docs.python-telegram-bot.org/en/v20.8/#">
+<div class="sidebar-logo-container">
+<img src="/htmlfiles/python-telegram-bot v20.8/en/v20.8/_static/ptb-logo_1024.png"/>
+</div>
+<span class="sidebar-brand-text">python-telegram-bot<br/> v20.8</span>
+</a><form action="https://docs.python-telegram-bot.org/en/v20.8/search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Search" class="sidebar-search" name="q" placeholder="Search"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.html">telegram package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of telegram package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.bot.html">Bot</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.at-tree.html">Available Types</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Available Types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.animation.html">Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommand.html">BotCommand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscope.html">BotCommandScope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopeallchatadministrators.html">BotCommandScopeAllChatAdministrators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopeallgroupchats.html">BotCommandScopeAllGroupChats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopeallprivatechats.html">BotCommandScopeAllPrivateChats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopechat.html">BotCommandScopeChat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopechatadministrators.html">BotCommandScopeChatAdministrators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopechatmember.html">BotCommandScopeChatMember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botcommandscopedefault.html">BotCommandScopeDefault</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botdescription.html">BotDescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botname.html">BotName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.botshortdescription.html">BotShortDescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.callbackquery.html">CallbackQuery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chat.html">Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatadministratorrights.html">ChatAdministratorRights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboost.html">ChatBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostremoved.html">ChatBoostRemoved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostsource.html">ChatBoostSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostsourcegiftcode.html">ChatBoostSourceGiftCode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostsourcegiveaway.html">ChatBoostSourceGiveaway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostsourcepremium.html">ChatBoostSourcePremium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatboostupdated.html">ChatBoostUpdated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatinvitelink.html">ChatInviteLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatjoinrequest.html">ChatJoinRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatlocation.html">ChatLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmember.html">ChatMember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberadministrator.html">ChatMemberAdministrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberbanned.html">ChatMemberBanned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberleft.html">ChatMemberLeft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmembermember.html">ChatMemberMember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberowner.html">ChatMemberOwner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberrestricted.html">ChatMemberRestricted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatmemberupdated.html">ChatMemberUpdated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatpermissions.html">ChatPermissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatphoto.html">ChatPhoto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.chatshared.html">ChatShared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.contact.html">Contact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.dice.html">Dice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.document.html">Document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.externalreplyinfo.html">ExternalReplyInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.file.html">File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forcereply.html">ForceReply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forumtopic.html">ForumTopic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forumtopicclosed.html">ForumTopicClosed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forumtopiccreated.html">ForumTopicCreated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forumtopicedited.html">ForumTopicEdited</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.forumtopicreopened.html">ForumTopicReopened</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.generalforumtopichidden.html">GeneralForumTopicHidden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.generalforumtopicunhidden.html">GeneralForumTopicUnhidden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.giveaway.html">Giveaway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.giveawaycompleted.html">GiveawayCompleted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.giveawaycreated.html">GiveawayCreated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.giveawaywinners.html">GiveawayWinners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inaccessiblemessage.html">InaccessibleMessage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinekeyboardbutton.html">InlineKeyboardButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinekeyboardmarkup.html">InlineKeyboardMarkup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputfile.html">InputFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmedia.html">InputMedia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmediaanimation.html">InputMediaAnimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmediaaudio.html">InputMediaAudio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmediadocument.html">InputMediaDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmediaphoto.html">InputMediaPhoto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmediavideo.html">InputMediaVideo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputsticker.html">InputSticker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.keyboardbutton.html">KeyboardButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.keyboardbuttonpolltype.html">KeyboardButtonPollType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.keyboardbuttonrequestchat.html">KeyboardButtonRequestChat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.keyboardbuttonrequestuser.html">KeyboardButtonRequestUser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.keyboardbuttonrequestusers.html">KeyboardButtonRequestUsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.linkpreviewoptions.html">LinkPreviewOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.location.html">Location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.loginurl.html">LoginUrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.maybeinaccessiblemessage.html">MaybeInaccessibleMessage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.menubutton.html">MenuButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.menubuttoncommands.html">MenuButtonCommands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.menubuttondefault.html">MenuButtonDefault</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.menubuttonwebapp.html">MenuButtonWebApp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.message.html">Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageautodeletetimerchanged.html">MessageAutoDeleteTimerChanged</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageentity.html">MessageEntity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageid.html">MessageId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageorigin.html">MessageOrigin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageoriginchannel.html">MessageOriginChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageoriginchat.html">MessageOriginChat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageoriginhiddenuser.html">MessageOriginHiddenUser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messageoriginuser.html">MessageOriginUser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messagereactioncountupdated.html">MessageReactionCountUpdated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.messagereactionupdated.html">MessageReactionUpdated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.photosize.html">PhotoSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.poll.html">Poll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.pollanswer.html">PollAnswer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.polloption.html">PollOption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.proximityalerttriggered.html">ProximityAlertTriggered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.reactioncount.html">ReactionCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.reactiontype.html">ReactionType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.reactiontypecustomemoji.html">ReactionTypeCustomEmoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.reactiontypeemoji.html">ReactionTypeEmoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.replykeyboardmarkup.html">ReplyKeyboardMarkup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.replykeyboardremove.html">ReplyKeyboardRemove</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.replyparameters.html">ReplyParameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.sentwebappmessage.html">SentWebAppMessage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.story.html">Story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.switchinlinequerychosenchat.html">SwitchInlineQueryChosenChat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.telegramobject.html">TelegramObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.textquote.html">TextQuote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.update.html">Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.user.html">User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.userchatboosts.html">UserChatBoosts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.userprofilephotos.html">UserProfilePhotos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.usershared.html">UserShared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.usersshared.html">UsersShared</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.venue.html">Venue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.video.html">Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.videochatended.html">VideoChatEnded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.videochatparticipantsinvited.html">VideoChatParticipantsInvited</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.videochatscheduled.html">VideoChatScheduled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.videochatstarted.html">VideoChatStarted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.videonote.html">VideoNote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.voice.html">Voice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.webappdata.html">WebAppData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.webappinfo.html">WebAppInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.webhookinfo.html">WebhookInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.writeaccessallowed.html">WriteAccessAllowed</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.stickers-tree.html">Stickers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Stickers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.maskposition.html">MaskPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.sticker.html">Sticker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.stickerset.html">StickerSet</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inline-tree.html">Inline Mode</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Inline Mode</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.choseninlineresult.html">ChosenInlineResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequery.html">InlineQuery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresult.html">InlineQueryResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultarticle.html">InlineQueryResultArticle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultaudio.html">InlineQueryResultAudio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedaudio.html">InlineQueryResultCachedAudio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcacheddocument.html">InlineQueryResultCachedDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedgif.html">InlineQueryResultCachedGif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedmpeg4gif.html">InlineQueryResultCachedMpeg4Gif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedphoto.html">InlineQueryResultCachedPhoto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedsticker.html">InlineQueryResultCachedSticker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedvideo.html">InlineQueryResultCachedVideo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcachedvoice.html">InlineQueryResultCachedVoice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultcontact.html">InlineQueryResultContact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultdocument.html">InlineQueryResultDocument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultgame.html">InlineQueryResultGame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultgif.html">InlineQueryResultGif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultlocation.html">InlineQueryResultLocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultmpeg4gif.html">InlineQueryResultMpeg4Gif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultphoto.html">InlineQueryResultPhoto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultsbutton.html">InlineQueryResultsButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultvenue.html">InlineQueryResultVenue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultvideo.html">InlineQueryResultVideo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inlinequeryresultvoice.html">InlineQueryResultVoice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputmessagecontent.html">InputMessageContent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputtextmessagecontent.html">InputTextMessageContent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputlocationmessagecontent.html">InputLocationMessageContent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputvenuemessagecontent.html">InputVenueMessageContent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputcontactmessagecontent.html">InputContactMessageContent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.inputinvoicemessagecontent.html">InputInvoiceMessageContent</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.payments-tree.html">Payments</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Payments</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.invoice.html">Invoice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.labeledprice.html">LabeledPrice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.orderinfo.html">OrderInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.precheckoutquery.html">PreCheckoutQuery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.shippingaddress.html">ShippingAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.shippingoption.html">ShippingOption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.shippingquery.html">ShippingQuery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.successfulpayment.html">SuccessfulPayment</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.games-tree.html">Games</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Games</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.callbackgame.html">Callbackgame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.game.html">Game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.gamehighscore.html">GameHighScore</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passport-tree.html">Passport</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Passport</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.credentials.html">Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.datacredentials.html">DataCredentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.encryptedcredentials.html">EncryptedCredentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.encryptedpassportelement.html">EncryptedPassportElement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.filecredentials.html">FileCredentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.iddocumentdata.html">IdDocumentData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportdata.html">PassportData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerror.html">PassportElementError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrordatafield.html">PassportElementErrorDataField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorfile.html">PassportElementErrorFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorfiles.html">PassportElementErrorFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorfrontside.html">PassportElementErrorFrontSide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorreverseside.html">PassportElementErrorReverseSide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorselfie.html">PassportElementErrorSelfie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrortranslationfile.html">PassportElementErrorTranslationFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrortranslationfiles.html">PassportElementErrorTranslationFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportelementerrorunspecified.html">PassportElementErrorUnspecified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.passportfile.html">PassportFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.personaldetails.html">PersonalDetails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.residentialaddress.html">ResidentialAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.securedata.html">SecureData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.securevalue.html">SecureValue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.html">telegram.ext package</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of telegram.ext package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.application.html">Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.applicationbuilder.html">ApplicationBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.applicationhandlerstop.html">ApplicationHandlerStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.baseupdateprocessor.html">BaseUpdateProcessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.callbackcontext.html">CallbackContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.contexttypes.html">ContextTypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.defaults.html">Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.extbot.html">ExtBot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.job.html">Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.jobqueue.html">JobQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.simpleupdateprocessor.html">SimpleUpdateProcessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.updater.html">Updater</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.handlers-tree.html">Handlers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Handlers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.basehandler.html">BaseHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.callbackqueryhandler.html">CallbackQueryHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.chatboosthandler.html">ChatBoostHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.chatjoinrequesthandler.html">ChatJoinRequestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.chatmemberhandler.html">ChatMemberHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.choseninlineresulthandler.html">ChosenInlineResultHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.commandhandler.html">CommandHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.conversationhandler.html">ConversationHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.filters.html">filters Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.inlinequeryhandler.html">InlineQueryHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.messagehandler.html">MessageHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.messagereactionhandler.html">MessageReactionHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.pollanswerhandler.html">PollAnswerHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.pollhandler.html">PollHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.precheckoutqueryhandler.html">PreCheckoutQueryHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.prefixhandler.html">PrefixHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.shippingqueryhandler.html">ShippingQueryHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.stringcommandhandler.html">StringCommandHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.stringregexhandler.html">StringRegexHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.typehandler.html">TypeHandler</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.persistence-tree.html">Persistence</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Persistence</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.basepersistence.html">BasePersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.dictpersistence.html">DictPersistence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.persistenceinput.html">PersistenceInput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.picklepersistence.html">PicklePersistence</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.acd-tree.html">Arbitrary Callback Data</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Arbitrary Callback Data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.callbackdatacache.html">CallbackDataCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.invalidcallbackdata.html">InvalidCallbackData</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.rate-limiting-tree.html">Rate Limiting</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Rate Limiting</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.baseratelimiter.html">BaseRateLimiter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.ext.aioratelimiter.html">AIORateLimiter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram_auxil.html">Auxiliary modules</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Auxiliary modules</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.constants.html">telegram.constants Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.error.html">telegram.error Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.helpers.html">telegram.helpers Module</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.request.html">telegram.request Module</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of telegram.request Module</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.request.baserequest.html">BaseRequest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.request.requestdata.html">RequestData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.request.httpxrequest.html">HTTPXRequest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.warnings.html">telegram.warnings Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://core.telegram.org/bots/api">Telegrams Bot API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.arbitrarycallbackdatabot.html"><code class="docutils literal notranslate"><span class="pre">arbitrarycallbackdatabot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.chatmemberbot.html"><code class="docutils literal notranslate"><span class="pre">chatmemberbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.contexttypesbot.html"><code class="docutils literal notranslate"><span class="pre">contexttypesbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.conversationbot.html"><code class="docutils literal notranslate"><span class="pre">conversationbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.conversationbot2.html"><code class="docutils literal notranslate"><span class="pre">conversationbot2.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.customwebhookbot.html"><code class="docutils literal notranslate"><span class="pre">customwebhookbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.deeplinking.html"><code class="docutils literal notranslate"><span class="pre">deeplinking.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.echobot.html"><code class="docutils literal notranslate"><span class="pre">echobot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.errorhandlerbot.html"><code class="docutils literal notranslate"><span class="pre">errorhandlerbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.inlinebot.html"><code class="docutils literal notranslate"><span class="pre">inlinebot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.inlinekeyboard.html"><code class="docutils literal notranslate"><span class="pre">inlinekeyboard.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.inlinekeyboard2.html"><code class="docutils literal notranslate"><span class="pre">inlinekeyboard2.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.nestedconversationbot.html"><code class="docutils literal notranslate"><span class="pre">nestedconversationbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.passportbot.html"><code class="docutils literal notranslate"><span class="pre">passportbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.paymentbot.html"><code class="docutils literal notranslate"><span class="pre">paymentbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.persistentconversationbot.html"><code class="docutils literal notranslate"><span class="pre">persistentconversationbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.pollbot.html"><code class="docutils literal notranslate"><span class="pre">pollbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.rawapibot.html"><cite>rawapibot.py</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.timerbot.html"><code class="docutils literal notranslate"><span class="pre">timerbot.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/examples.webappbot.html"><code class="docutils literal notranslate"><span class="pre">webappbot.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/wiki">Wiki</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/stability_policy.html">Stability Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/coc.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/contributing.html">How To Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/testing.html">Testing in PTB</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://python-telegram-bot.org/">Website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/">GitHub Repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://t.me/pythontelegrambotchannel/">Telegram Channel</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://t.me/pythontelegrambotgroup/">Telegram User Group</a></li>
+</ul>
+</div>
+<div class="flat" data-ea-campaign-types="community|house|paid" data-ea-keywords="bot|chatbot|framework|python|readthedocs-project-34175|readthedocs-project-python-telegram-bot|telegram" data-ea-manual="true" data-ea-publisher="readthedocs" data-ea-type="readthedocs-sidebar" id="furo-sidebar-ad-placement"></div>
+</div>
+<div aria-label="Versions" class="rst-versions" data-toggle="rst-versions" id="furo-readthedocs-versions" role="note" tabindex="0">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span class="fa fa-book"> </span>
+    v: v20.8
+  </span>
+<div class="rst-other-versions"><!-- Inserted RTD Footer -->
+<div class="injected">
+<div class="rst-versions rst-badge" data-toggle="rst-versions">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span class="fa fa-book"> </span>
+      v: v20.8
+      <span class="fa fa-caret-down"></span>
+</span>
+<div class="rst-other-versions">
+<dl>
+<dt>Versions</dt>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/latest/">latest</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/stable/">stable</a>
+</dd>
+<dd class="rtd-current-item">
+<a href="https://docs.python-telegram-bot.org/en/v20.8/">v20.8</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.7/">v20.7</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.6/">v20.6</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.5/">v20.5</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.4/">v20.4</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.3/">v20.3</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.2/">v20.2</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.1/">v20.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0/">v20.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0b0/">v20.0b0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a6/">v20.0a6</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a5/">v20.0a5</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a4/">v20.0a4</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a3/">v20.0a3</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a2/">v20.0a2</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a1/">v20.0a1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v20.0a0/">v20.0a0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.15/">v13.15</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.14/">v13.14</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.13/">v13.13</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.12/">v13.12</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.11/">v13.11</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.10/">v13.10</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.9/">v13.9</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.8.1/">v13.8.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.8/">v13.8</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.7/">v13.7</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.6/">v13.6</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.5/">v13.5</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.4.1/">v13.4.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.3/">v13.3</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.2/">v13.2</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.1/">v13.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v13.0/">v13.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.8/">v12.8</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.7/">v12.7</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.6.1/">v12.6.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.6/">v12.6</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.5.1/">v12.5.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.5/">v12.5</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.4.2/">v12.4.2</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.4.1/">v12.4.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.4.0/">v12.4.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.3.0/">v12.3.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.2.0/">v12.2.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.1.1/">v12.1.1</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.1.0/">v12.1.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.0.0/">v12.0.0</a>
+</dd>
+<dd>
+<a href="https://docs.python-telegram-bot.org/en/v12.0.0b1/">v12.0.0b1</a>
+</dd>
+</dl>
+<dl>
+<dt>Downloads</dt>
+<dd><a href="https://docs.python-telegram-bot.org/_/downloads/en/v20.8/pdf/">PDF</a></dd>
+<dd><a href="https://docs.python-telegram-bot.org/_/downloads/en/v20.8/htmlzip/">HTML</a></dd>
+</dl>
+<dl>
+<!-- These are kept as relative links for internal installs that are http -->
+<dt>On Read the Docs</dt>
+<dd>
+<a href="https://readthedocs.org/projects/python-telegram-bot/">Project Home</a>
+</dd>
+<dd>
+<a href="https://readthedocs.org/projects/python-telegram-bot/builds/">Builds</a>
+</dd>
+<dd>
+<a href="https://readthedocs.org/projects/python-telegram-bot/downloads/">Downloads</a>
+</dd>
+</dl>
+<dl>
+<dt>On GitHub</dt>
+<dd>
+<a href="https://github.com/python-telegram-bot/python-telegram-bot/blob/v20.8/docs/source/index.rst">View</a>
+</dd>
+</dl>
+<dl>
+<dt>Search</dt>
+<dd>
+<div style="padding: 6px;">
+<form action="https://readthedocs.org/projects/python-telegram-bot/search/" class="wy-form" id="flyout-search-form" method="get" target="_blank">
+<input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+</form>
+</div>
+</dd>
+</dl>
+<hr/>
+<small>
+<span>Hosted by <a href="https://readthedocs.org/">Read the Docs</a></span>
+<span> · </span>
+<a href="https://docs.readthedocs.io/page/privacy-policy.html">Privacy Policy</a>
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="https://docs.python-telegram-bot.org/en/v20.8/#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Back to top</span>
+</a>
+<div class="content-icon-container">
+<div class="edit-this-page">
+<a class="muted-link" href="https://github.com/python-telegram-bot/python-telegram-bot/edit/v20.8/docs/source/index.rst" title="Edit this page">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+<line x1="13.5" x2="17.5" y1="6.5" y2="10.5"></line>
+</svg>
+<span class="visually-hidden">Edit this page</span>
+</a>
+</div><div class="theme-toggle-container theme-toggle-content">
+<button class="theme-toggle">
+<div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+<svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<div class="visually-hidden">Toggle table of contents sidebar</div>
+<i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+</label>
+</div>
+<article role="main">
+<a class="reference external image-reference" href="https://python-telegram-bot.org/"><img src="/htmlfiles/python-telegram-bot v20.8/python-telegram-bot/logos/master/logo-text/png/ptb-logo-text_768.png"/></a>
+<a class="reference external image-reference" href="https://pypi.org/project/python-telegram-bot/"><img src="/htmlfiles/python-telegram-bot v20.8/pypi/v/python-telegram-bot.svg"/></a>
+<a class="reference external image-reference" href="https://pypi.org/project/python-telegram-bot/"><img src="/htmlfiles/python-telegram-bot v20.8/pypi/pyversions/python-telegram-bot.svg"/></a>
+<a class="reference external image-reference" href="https://core.telegram.org/bots/api-changelog"><img src="/htmlfiles/python-telegram-bot v20.8/badge/Bot%20API-7.0-blue"/></a>
+<a class="reference external image-reference" href="https://pypistats.org/packages/python-telegram-bot"><img src="/htmlfiles/python-telegram-bot v20.8/pypi/dm/python-telegram-bot"/></a>
+<a class="reference external image-reference" href="https://docs.python-telegram-bot.org/en/stable/"><img src="/htmlfiles/python-telegram-bot v20.8/projects/python-telegram-bot/badge/"/></a>
+<a class="reference external image-reference" href="https://www.gnu.org/licenses/lgpl-3.0.html"><img src="/htmlfiles/python-telegram-bot v20.8/pypi/l/python-telegram-bot.svg"/></a>
+<a class="reference external image-reference" href="https://github.com/python-telegram-bot/python-telegram-bot/"><img src="/htmlfiles/python-telegram-bot v20.8/python-telegram-bot/python-telegram-bot/actions/workflows/unit_tests.yml/badge.svg"/></a>
+<a class="reference external image-reference" href="https://app.codecov.io/gh/python-telegram-bot/python-telegram-bot"><img src="/htmlfiles/python-telegram-bot v20.8/gh/python-telegram-bot/python-telegram-bot/branch/master/graph/badge.svg"/></a>
+<a class="reference external image-reference" href="https://isitmaintained.com/project/python-telegram-bot/python-telegram-bot"><img alt="Median time to resolve an issue" src="https://isitmaintained.com/badge/resolution/python-telegram-bot/python-telegram-bot.svg"/></a>
+<a class="reference external image-reference" href="https://app.codacy.com/gh/python-telegram-bot/python-telegram-bot/dashboard"><img src="/htmlfiles/python-telegram-bot v20.8/project/badge/Grade/99d901eaa09b44b4819aec05c330c968"/></a>
+<a class="reference external image-reference" href="https://app.deepsource.com/gh/python-telegram-bot/python-telegram-bot/?ref=repository-badge"><img src="/htmlfiles/python-telegram-bot v20.8/gh/python-telegram-bot/python-telegram-bot.svg/"/></a>
+<a class="reference external image-reference" href="https://results.pre-commit.ci/latest/github/python-telegram-bot/python-telegram-bot/master"><img src="/htmlfiles/python-telegram-bot v20.8/badge/github/python-telegram-bot/python-telegram-bot/master.svg"/></a>
+<a class="reference external image-reference" href="https://github.com/psf/black"><img src="/htmlfiles/python-telegram-bot v20.8/badge/code%20style-black-000000.svg"/></a>
+<a class="reference external image-reference" href="https://t.me/pythontelegrambotchannel"><img src="/htmlfiles/python-telegram-bot v20.8/badge/Telegram-Channel-blue.svg"/></a>
+<a class="reference external image-reference" href="https://telegram.me/pythontelegrambotgroup"><img src="/htmlfiles/python-telegram-bot v20.8/badge/Telegram-Group-blue.svg"/></a>
+<p>We have made you a wrapper you can’t refuse</p>
+<p>We have a vibrant community of developers helping each other in our <a class="reference external" href="https://telegram.me/pythontelegrambotgroup">Telegram group</a>. Join us!</p>
+<p><em>Stay tuned for library updates and new releases on our</em> <a class="reference external" href="https://telegram.me/pythontelegrambotchannel">Telegram Channel</a>.</p>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#introduction" title="Link to this heading">¶</a></h1>
+<p>This library provides a pure Python, asynchronous interface for the
+<a class="reference external" href="https://core.telegram.org/bots/api">Telegram Bot API</a>.
+It’s compatible with Python versions <strong>3.8+</strong>.</p>
+<p>In addition to the pure API implementation, this library features a number of high-level classes to
+make the development of bots easy and straightforward. These classes are contained in the
+<code class="docutils literal notranslate"><span class="pre">telegram.ext</span></code> submodule.</p>
+<p>A pure API implementation <em>without</em> <code class="docutils literal notranslate"><span class="pre">telegram.ext</span></code> is available as the standalone package <code class="docutils literal notranslate"><span class="pre">python-telegram-bot-raw</span></code>.  <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/blob/master/README_RAW.rst">See here for details.</a></p>
+<section id="note">
+<h2>Note<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#note" title="Link to this heading">¶</a></h2>
+<p>Installing both <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> and <code class="docutils literal notranslate"><span class="pre">python-telegram-bot-raw</span></code> in conjunction will result in undesired side-effects, so only install <em>one</em> of both.</p>
+</section>
+</section>
+<section id="telegram-api-support">
+<h1>Telegram API support<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#telegram-api-support" title="Link to this heading">¶</a></h1>
+<p>All types and methods of the Telegram Bot API <strong>7.0</strong> are supported.</p>
+</section>
+<section id="installing">
+<h1>Installing<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#installing" title="Link to this heading">¶</a></h1>
+<p>You can install or upgrade <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> via</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre id="codecell0"><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>python-telegram-bot<span class="w"> </span>--upgrade
+</pre><button class="copybtn o-tooltip--left" data-clipboard-target="#codecell0" data-tooltip="Copy">
+<svg class="icon icon-tabler icon-tabler-copy" fill="none" height="44" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+<title>Copy to clipboard</title>
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<rect height="12" rx="2" width="12" x="8" y="8"></rect>
+<path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+</button></div>
+</div>
+<p>To install a pre-release, use the <code class="docutils literal notranslate"><span class="pre">--pre</span></code> <a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-pre">flag</a> in addition.</p>
+<p>You can also install <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> from source, though this is usually not necessary.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre id="codecell1"><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/python-telegram-bot/python-telegram-bot
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>python-telegram-bot
+$<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre><button class="copybtn o-tooltip--left" data-clipboard-target="#codecell1" data-tooltip="Copy">
+<svg class="icon icon-tabler icon-tabler-copy" fill="none" height="44" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+<title>Copy to clipboard</title>
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<rect height="12" rx="2" width="12" x="8" y="8"></rect>
+<path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+</button></div>
+</div>
+<section id="verifying-releases">
+<h2>Verifying Releases<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#verifying-releases" title="Link to this heading">¶</a></h2>
+<p>We sign all the releases with a GPG key.
+The signatures are uploaded to both the <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/releases">GitHub releases page</a> and the <a class="reference external" href="https://pypi.org/project/python-telegram-bot/">PyPI project</a> and end with a suffix <code class="docutils literal notranslate"><span class="pre">.asc</span></code>.
+Please find the public keys <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/tree/master/public_keys">here</a>.
+The keys are named in the format <code class="docutils literal notranslate"><span class="pre">&lt;first_version&gt;-&lt;last_version&gt;.gpg</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;first_version&gt;-current.gpg</span></code> if the key is currently being used for new releases.</p>
+<p>In addition, the GitHub release page also contains the sha1 hashes of the release files in the files with the suffix <code class="docutils literal notranslate"><span class="pre">.sha1</span></code>.</p>
+<p>This allows you to verify that a release file that you downloaded was indeed provided by the <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> team.</p>
+</section>
+<section id="dependencies-their-versions">
+<h2>Dependencies &amp; Their Versions<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#dependencies-their-versions" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> tries to use as few 3rd party dependencies as possible.
+However, for some features using a 3rd party library is more sane than implementing the functionality again.
+As these features are <em>optional</em>, the corresponding 3rd party dependencies are not installed by default.
+Instead, they are listed as optional dependencies.
+This allows to avoid unnecessary dependency conflicts for users who don’t need the optional features.</p>
+<p>The only required dependency is <a class="reference external" href="https://www.python-httpx.org/">httpx ~= 0.26.0</a> for
+<code class="docutils literal notranslate"><span class="pre">telegram.request.HTTPXRequest</span></code>, the default networking backend.</p>
+<p><code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> is most useful when used along with additional libraries.
+To minimize dependency conflicts, we try to be liberal in terms of version requirements on the (optional) dependencies.
+On the other hand, we have to ensure stability of <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code>, which is why we do apply version bounds.
+If you encounter dependency conflicts due to these bounds, feel free to reach out.</p>
+<section id="optional-dependencies">
+<h3>Optional Dependencies<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#optional-dependencies" title="Link to this heading">¶</a></h3>
+<p>PTB can be installed with optional dependencies:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[passport]"</span></code> installs the <a class="reference external" href="https://cryptography.io/en/stable">cryptography&gt;=39.0.1</a> library. Use this, if you want to use Telegram Passport related functionality.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[socks]"</span></code> installs <a class="reference external" href="https://www.python-httpx.org/#dependencies">httpx[socks]</a>. Use this, if you want to work behind a Socks5 server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[http2]"</span></code> installs <a class="reference external" href="https://www.python-httpx.org/#dependencies">httpx[http2]</a>. Use this, if you want to use HTTP/2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[rate-limiter]"</span></code> installs <a class="reference external" href="https://aiolimiter.readthedocs.io/en/stable/">aiolimiter~=1.1.0</a>. Use this, if you want to use <code class="docutils literal notranslate"><span class="pre">telegram.ext.AIORateLimiter</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[webhooks]"</span></code> installs the <a class="reference external" href="https://www.tornadoweb.org/en/stable/">tornado~=6.4</a> library. Use this, if you want to use <code class="docutils literal notranslate"><span class="pre">telegram.ext.Updater.start_webhook</span></code>/<code class="docutils literal notranslate"><span class="pre">telegram.ext.Application.run_webhook</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[callback-data]"</span></code> installs the <a class="reference external" href="https://cachetools.readthedocs.io/en/latest/">cachetools~=5.3.2</a> library. Use this, if you want to use <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/wiki/Arbitrary-callback_data">arbitrary callback_data</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[job-queue]"</span></code> installs the <a class="reference external" href="https://apscheduler.readthedocs.io/en/3.x/">APScheduler~=3.10.4</a> library and enforces <a class="reference external" href="https://pypi.org/project/pytz/">pytz&gt;=2018.6</a>, where <code class="docutils literal notranslate"><span class="pre">pytz</span></code> is a dependency of <code class="docutils literal notranslate"><span class="pre">APScheduler</span></code>. Use this, if you want to use the <code class="docutils literal notranslate"><span class="pre">telegram.ext.JobQueue</span></code>.</p></li>
+</ul>
+<p>To install multiple optional dependencies, separate them by commas, e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[socks,webhooks]"</span></code>.</p>
+<p>Additionally, two shortcuts are provided:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[all]"</span></code> installs all optional dependencies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"python-telegram-bot[ext]"</span></code> installs all optional dependencies that are related to <code class="docutils literal notranslate"><span class="pre">telegram.ext</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">[rate-limiter,</span> <span class="pre">webhooks,</span> <span class="pre">callback-data,</span> <span class="pre">job-queue]</span></code>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="quick-start">
+<h1>Quick Start<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#quick-start" title="Link to this heading">¶</a></h1>
+<p>Our Wiki contains an <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/wiki/Introduction-to-the-API">Introduction to the API</a> explaining how the pure Bot API can be accessed via <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code>.
+Moreover, the <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions---Your-first-Bot">Tutorial: Your first Bot</a> gives an introduction on how chatbots can be easily programmed with the help of the <code class="docutils literal notranslate"><span class="pre">telegram.ext</span></code> module.</p>
+</section>
+<section id="resources">
+<h1>Resources<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#resources" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://docs.python-telegram-bot.org/">package documentation</a> is the technical reference for <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code>.
+It contains descriptions of all available classes, modules, methods and arguments as well as the <a class="reference external" href="https://docs.python-telegram-bot.org/changelog.html">changelog</a>.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/wiki/">wiki</a> is home to number of more elaborate introductions of the different features of <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> and other useful resources that go beyond the technical documentation.</p></li>
+<li><p>Our <a class="reference external" href="https://docs.python-telegram-bot.org/examples.html">examples section</a> contains several examples that showcase the different features of both the Bot API and <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code>.
+Even if it is not your approach for learning, please take a look at <code class="docutils literal notranslate"><span class="pre">echobot.py</span></code>. It is the de facto base for most of the bots out there.
+The code for these examples is released to the public domain, so you can start by grabbing the code and building on top of it.</p></li>
+<li><p>The <a class="reference external" href="https://core.telegram.org/bots/api">official Telegram Bot API documentation</a> is of course always worth a read.</p></li>
+</ul>
+</section>
+<section id="getting-help">
+<h1>Getting help<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#getting-help" title="Link to this heading">¶</a></h1>
+<p>If the resources mentioned above don’t answer your questions or simply overwhelm you, there are several ways of getting help.</p>
+<ol class="arabic simple">
+<li><p>We have a vibrant community of developers helping each other in our <a class="reference external" href="https://telegram.me/pythontelegrambotgroup">Telegram group</a>. Join us! Asking a question here is often the quickest way to get a pointer in the right direction.</p></li>
+<li><p>Ask questions by opening <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/discussions/new">a discussion</a>.</p></li>
+<li><p>You can even ask for help on Stack Overflow using the <a class="reference external" href="https://stackoverflow.com/questions/tagged/python-telegram-bot">python-telegram-bot tag</a>.</p></li>
+</ol>
+</section>
+<section id="concurrency">
+<h1>Concurrency<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#concurrency" title="Link to this heading">¶</a></h1>
+<p>Since v20.0, <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> is built on top of Pythons <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module.
+Because <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> is in general single-threaded, <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> does currently not aim to be thread-safe.
+Noteworthy parts of <code class="docutils literal notranslate"><span class="pre">python-telegram-bots</span></code> API that are likely to cause issues (e.g. race conditions) when used in a multi-threaded setting include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">telegram.ext.Application/Updater.update_queue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telegram.ext.ConversationHandler.check/handle_update</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telegram.ext.CallbackDataCache</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telegram.ext.BasePersistence</span></code></p></li>
+<li><p>all classes in the <code class="docutils literal notranslate"><span class="pre">telegram.ext.filters</span></code> module that allow to add/remove allowed users/chats at runtime</p></li>
+</ul>
+</section>
+<section id="contributing">
+<h1>Contributing<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#contributing" title="Link to this heading">¶</a></h1>
+<p>Contributions of all sizes are welcome.
+Please review our <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/blob/master/.github/CONTRIBUTING.rst">contribution guidelines</a> to get started.
+You can also help by <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot/issues/new/choose">reporting bugs or feature requests</a>.</p>
+</section>
+<section id="donating">
+<h1>Donating<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#donating" title="Link to this heading">¶</a></h1>
+<p>Occasionally we are asked if we accept donations to support the development.
+While we appreciate the thought, maintaining PTB is our hobby, and we have almost no running costs for it. We therefore have nothing set up to accept donations.
+If you still want to donate, we kindly ask you to donate to another open source project/initiative of your choice instead.</p>
+</section>
+<section class="active" id="license">
+<h1>License<a class="headerlink" href="https://docs.python-telegram-bot.org/en/v20.8/#license" title="Link to this heading">¶</a></h1>
+<p>You may copy, distribute and modify the software provided that modifications are described and licensed for free under <a class="reference external" href="https://www.gnu.org/licenses/lgpl-3.0.html">LGPL-3</a>.
+Derivatives works (including modifications or anything statically linked to the library) can only be redistributed under LGPL-3, but applications that use the library don’t have to be.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="https://docs.python-telegram-bot.org/en/v20.8/telegram.html">
+<div class="page-info">
+<div class="context">
+<span>Next</span>
+</div>
+<div class="title">telegram package</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015-2023, Leandro Toledo
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me/">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+</div>
+<div class="right-details">
+<div class="icons">
+<a aria-label="Telegram Channel" class="muted-link" href="https://t.me/pythontelegrambotchannel/"><svg fill="currentColor" height="1em" stroke="currentColor" stroke-width="0" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path></svg></a>
+<a aria-label="GitHub" class="muted-link" href="https://github.com/python-telegram-bot/python-telegram-bot/"><svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" fill-rule="evenodd"></path></svg></a>
+<a aria-label="python-telegram-bot website" class="muted-link" href="https://python-telegram-bot.org/"><svg fill="currentColor" height="1em" stroke="currentColor" stroke-width="0" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            On this page
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#">Introduction</a><ul>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#note">Note</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#telegram-api-support">Telegram API support</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#installing">Installing</a><ul>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#verifying-releases">Verifying Releases</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#dependencies-their-versions">Dependencies &amp; Their Versions</a><ul>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#optional-dependencies">Optional Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#resources">Resources</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#getting-help">Getting help</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#concurrency">Concurrency</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#contributing">Contributing</a></li>
+<li><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#donating">Donating</a></li>
+<li class="scroll-current"><a class="reference internal" href="https://docs.python-telegram-bot.org/en/v20.8/#license">License</a><ul>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<div class="search__outer__wrapper search__backdrop"><div class="search__outer"> <div class="search__outer__input__wrapper"> <input class="search__outer__input" placeholder="Search" spellcheck="false"/> <span class="bar"></span> <div class="dropdown" tabindex="0"> <button class="dropbtn">Type                        <i class="arrow down"></i> </button> <ul class="dropdown-content"> <li><a href="https://docs.python-telegram-bot.org/en/v20.8/#"><input checked="" id="drp-classes" type="checkbox"/><label for="drp-classes">  Classes</label></a></li> <li><a href="https://docs.python-telegram-bot.org/en/v20.8/#"><input checked="" id="drp-methods" type="checkbox"/><label for="drp-methods">  Methods</label></a></li> <li><a href="https://docs.python-telegram-bot.org/en/v20.8/#"><input checked="" id="drp-attrs" type="checkbox"/><label for="drp-attrs">  Attributes</label></a></li> <li><a href="https://docs.python-telegram-bot.org/en/v20.8/#"><input checked="" id="drp-params" type="checkbox"/><label for="drp-params">  Parameters</label></a></li> <li><a href="https://docs.python-telegram-bot.org/en/v20.8/#"><input checked="" id="drp-docs" type="checkbox"/><label for="drp-docs">  Docstring</label></a></li> </ul> </div> <div class="search__cross" title="Close"> <!--?xml version="1.0" encoding="UTF-8"?--> <svg class="search__cross__img" enable-background="new 0 0 96 96" height="15px" version="1.1" viewbox="0 0 96 96" width="15px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"> <polygon fill="#AAAAAB" points="96,14 82,0 48,34 14,0 0,14 34,48 0,82 14,96 48,62 82,96 96,82 62,48 "></polygon> </svg> </div> </div> </div> <div class="rtd__search__credits">             Search by <a href="https://readthedocs.org/">Read the Docs</a> &amp; <a href="https://github.com/harshil21/furo-sphinx-search">furo-sphinx-search</a> </div></div></body></html>

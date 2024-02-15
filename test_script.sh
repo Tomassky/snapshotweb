@@ -1,0 +1,1 @@
+rm ./mhtmlfiles/* && touch ./mhtmlfiles/urlfiles.txt &&  python3 -m pytest -s tests/test1.py

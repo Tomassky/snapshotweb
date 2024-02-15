@@ -1,0 +1,13 @@
+﻿apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: infrastructure
+  name: snapshotweb
+  labels: {}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: local

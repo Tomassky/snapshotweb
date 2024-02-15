@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><!-- Head tag --><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link href="cid:css-20b10834-102e-4170-b7c8-f8aae853507b@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-7a891f88-5650-4055-86fe-158da7f25bef@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-fdb38e0c-2115-4648-b55f-27bd72792b02@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-197ce794-1dfc-45af-a9cc-d68697c4d4dc@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-d9e44a3b-4279-40b7-b1c2-1c442abd8a4c@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-c4b3c993-a8db-434c-8e54-79b02edfde2d@mhtml.blink" rel="stylesheet" type="text/css"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="no-referrer-when-downgrade" name="referrer"/>
+<meta content="p7Pz3jlx4t" name="baidu-site-verification"/>
+<meta content="X31OY0d2sKImNbS2x8-OpITWRK4nn7nZCcXe3_hA9ew" name="google-site-verification"/>
+<meta content="7E2AEE3378AC93764DEAB411177A21A1" name="msvalidate.01"/>
+<meta content="1d1e81a1a48a1ed2e3308d7cb8e548e7" name="360-site-verification"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- if page has tags, then add tags to keyword -->
+<meta content="geektutu,jiketutu,Go语言,golang,python,Go,golang test,unit tests,golang testing" name="keywords"/>
+<!-- page.description has higher priority -->
+<meta content="本文介绍了Go语言(golang) 如何写单元测试(unit tests)，详细介绍了标准库 testing 的使用。包括子测试(subtests)，帮助函数(helpers)，setup 和 teardown 机制，网络测试(Network, http) 和基准测试(benchmark)" name="description"/>
+<link href="https://geektutu.com/img/icon.png" rel="shortcut icon"/>
+<title>
+    
+    Go Test 单元测试简明教程 | 快速入门 | 极客兔兔
+    
+  </title>
+<link href="https://geektutu.com/post/quick-go-test.html" rel="canonical"/>
+<link href="https://geektutu.com/css/geektutu.css" rel="stylesheet"/>
+<!-- global function -->
+<!-- google ad -->
+<meta content="Hexo 5.2.0" name="generator"/><link href="https://geektutu.com/feed.xml" rel="alternate" title="极客兔兔" type="application/rss+xml"/>
+<meta content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9" http-equiv="origin-trial"/></head>
+<body>
+<header class="gkt-header col-xs-12 padding-0">
+<div class="gkt-header-container hide" id="gkt-nav">
+<a class="gkt-header-title float-left" href="https://geektutu.com/">
+<img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/icon.png"/>
+<span>极客兔兔</span>
+</a>
+<nav class="gkt-header-nav text-right">
+<ul>
+<li><a class="hidden-xs" href="https://geektutu.com/feed.xml">订阅</a></li>
+<li><a href="https://geektutu.com/series/">专题</a></li>
+<li><a href="https://geektutu.com/archives/">归档</a></li>
+<li><a href="https://geektutu.com/post/link.html">友链</a></li>
+<li><a href="https://geektutu.com/post/about.html">关于</a></li>
+</ul>
+</nav>
+</div>
+<div class="gkt-header-container hidden-xs" id="gkt-cate-nav">
+<nav class="gkt-header-nav float-left">
+<ul>
+<li class="gkt-cate-name float-left active">
+<a class="float-left" href="https://geektutu.com/post/tensorflow-mnist-simplest.html">简明教程 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/tensorflow-mnist-simplest.html">TensorFlow 教程</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/pandas-dataframe-series.html">Pandas 数据处理</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/tf2doc.html">TensorFlow2 文档</a></li>
+<li class="gkt-sub-cate-name active"><a class="float-left" href="https://geektutu.com/post/quick-golang.html">Go 简明教程</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/quick-rust.html">Rust 简明教程</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/quick-python.html">Python 简明教程</a></li>
+</ul>
+</li>
+<li class="gkt-cate-name float-left">
+<a class="float-left" href="https://geektutu.com/post/blog-experience-1.html">杂谈 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/blog-experience-1.html">建站经历</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/2020.html">年终总结</a></li>
+</ul>
+</li>
+<li class="gkt-cate-name float-left">
+<a class="float-left" href="https://geektutu.com/post/qa-ml.html">面试 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/qa-ml.html">机器学习面试题</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/qa-golang.html">Go 语言面试题</a></li>
+</ul>
+</li>
+<li class="gkt-cate-name float-left">
+<a class="float-left" href="https://geektutu.com/post/gee.html">从零实现 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/gee.html">Web框架 - Gee</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/geecache.html">分布式缓存 - GeeCache</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/geeorm.html">ORM框架 - GeeORM</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/geerpc.html">RPC框架 - GeeRPC</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/7days-golang-q1.html">7days-golang Q &amp; A</a></li>
+</ul>
+</li>
+<li class="gkt-cate-name float-left">
+<a class="float-left" href="https://geektutu.com/post/box-tools.html">百宝箱 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/box-tools.html">工具</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/cheat-sheet-sqlite.html">SQLite 速查表</a></li>
+</ul>
+</li>
+<li class="gkt-cate-name float-left">
+<a class="float-left" href="https://geektutu.com/post/high-performance-go.html">高性能编程 ▾</a>
+<ul class="gkt-sub-cate">
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/high-performance-go.html">序言</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/hpg-benchmark.html">性能分析</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/hpg-string-concat.html">常用数据结构</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/hpg-mutex.html">并发编程</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/hpg-reduce-size.html">编译优化</a></li>
+<li class="gkt-sub-cate-name"><a class="float-left" href="https://geektutu.com/post/hpg-gotchas-array-slice.html">语言陷阱</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="gkt-header-placeholder" style="height: 44px"></div>
+<div class="gkt-header-placeholder hidden-xs" style="height: 44px"></div>
+<!-- Main Content -->
+<div class="main-container">
+<!-- Main Content -->
+<main class="col-xs-12 padding-0 markdown-it">
+<!-- Post Container -->
+<!-- Post Content -->
+<div class="float-left post-container box-shadow">
+<div class="u-arrow-wrapper hidden-xs" style="left: 18px; width: 750px;">
+<a class="float-left" href="https://geektutu.com/post/geecache.html"><i class="u-arrow-left"></i></a>
+<a class="float-right" href="https://geektutu.com/post/geecache-day1.html"><i class="u-arrow-right"></i></a>
+</div>
+<article class="col-xs-12">
+<h1> Go Test 单元测试简明教程 </h1>
+<div class="hidden-lg hidden-md series_links">
+<p> <strong> Go 简明教程系列文章链接：</strong></p>
+<ul>
+<li>
+<a href="https://geektutu.com/post/quick-golang.html">Go 语言简明教程</a>
+<span class="post-item-date">(Aug 6, 2019)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-gin.html">Go Gin 简明教程</a>
+<span class="post-item-date">(Aug 7, 2019)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go2.html">Go2 新特性简明教程</a>
+<span class="post-item-date">(Aug 15, 2019)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-protobuf.html">Go Protobuf 简明教程</a>
+<span class="post-item-date">(Jan 11, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-rpc.html">Go RPC &amp; TLS 鉴权简明教程</a>
+<span class="post-item-date">(Jan 13, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-wasm.html">Go WebAssembly (Wasm) 简明教程</a>
+<span class="post-item-date">(Jan 23, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-test.html">Go Test 单元测试简明教程</a>
+<span class="post-item-date">(Feb 10, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-gomock.html">Go Mock (gomock)简明教程</a>
+<span class="post-item-date">(Feb 14, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-mmap.html">Go Mmap 文件内存映射简明教程</a>
+<span class="post-item-date">(Apr 20, 2020)</span>
+</li>
+<li>
+<a href="https://geektutu.com/post/quick-go-context.html">Go Context 并发编程简明教程</a>
+<span class="post-item-date">(Apr 20, 2020)</span>
+</li>
+</ul>
+</div>
+<div class="gkt-article-start"></div>
+<p><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/post/quick-go-test/go_test.jpg"/></p>
+<h2 id="1-如何写好单元测试"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#1-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" title="1 如何写好单元测试"></a>1 如何写好单元测试</h2><p>单元测试(Unit Tests, UT) 是一个优秀项目不可或缺的一部分，特别是在一些频繁变动和多人合作开发的项目中尤为重要。你或多或少都会有因为自己的提交，导致应用挂掉或服务宕机的经历。如果这个时候你的修改导致测试用例失败，你再重新审视自己的修改，发现之前的修改还有一些特殊场景没有包含，恭喜你减少了一次上库失误。也会有这样的情况，项目很大，启动环境很复杂，你优化了一个函数的性能，或是添加了某个新的特性，如果部署在正式环境上之后再进行测试，成本太高。对于这种场景，几个小小的测试用例或许就能够覆盖大部分的测试场景。而且在开发过程中，效率最高的莫过于所见即所得了，单元测试也能够帮助你做到这一点，试想一下，假如你一口气写完一千行代码，debug 的过程也不会轻松，如果在这个过程中，对于一些逻辑较为复杂的函数，同时添加一些测试用例，即时确保正确性，最后集成的时候，会是另外一番体验。</p>
+<p>如何写好单元测试呢？</p>
+<p>首先，学会写测试用例。比如如何测试单个函数/方法；比如如何做基准测试；比如如何写出简洁精炼的测试代码；再比如遇到数据库访问等的方法调用时，如何 <code>mock</code>。</p>
+<p>然后，写可测试的代码。<code>高内聚，低耦合</code>是软件工程的原则，同样，对测试而言，函数/方法写法不同，测试难度也是不一样的。职责单一，参数类型简单，与其他函数耦合度低的函数往往更容易测试。我们经常会说，“这种代码没法测试”，这种时候，就得思考函数的写法可不可以改得更好一些。为了代码可测试而重构是值得的。</p>
+<p>接下来将介绍如何使用 Go 语言的标准库 <code>testing</code> 进行单元测试。</p>
+<h2 id="2-一个简单例子"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#2-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90" title="2 一个简单例子"></a>2 一个简单例子</h2><p>Go 语言推荐测试文件和源代码文件放在一块，测试文件以 <code>_test.go</code> 结尾。比如，当前 package 有 <code>calc.go</code> 一个文件，我们想测试 <code>calc.go</code> 中的 <code>Add</code> 和 <code>Mul</code> 函数，那么应该新建 <code>calc_test.go</code> 作为测试文件。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">example/</span><br/><span class="line">   |--calc.go</span><br/><span class="line">   |--calc_test.go</span><br/></pre></td></tr></tbody></table></figure>
+<p>假如 <code>calc.go</code> 的代码如下：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Add</span><span class="params">(a <span class="keyword">int</span>, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br/><span class="line">    <span class="keyword">return</span> a + b</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Mul</span><span class="params">(a <span class="keyword">int</span>, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br/><span class="line">    <span class="keyword">return</span> a * b</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>那么 <code>calc_test.go</code> 中的测试用例可以这么写：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> <span class="string">"testing"</span></span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestAdd</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	<span class="keyword">if</span> ans := Add(<span class="number">1</span>, <span class="number">2</span>); ans != <span class="number">3</span> {</span><br/><span class="line">		t.Errorf(<span class="string">"1 + 2 expected be 3, but %d got"</span>, ans)</span><br/><span class="line">	}</span><br/><span class="line"></span><br/><span class="line">	<span class="keyword">if</span> ans := Add(<span class="number">-10</span>, <span class="number">-20</span>); ans != <span class="number">-30</span> {</span><br/><span class="line">		t.Errorf(<span class="string">"-10 + -20 expected be -30, but %d got"</span>, ans)</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<ul>
+<li>测试用例名称一般命名为 <code>Test</code> 加上待测试的方法名。</li>
+<li>测试用的参数有且只有一个，在这里是 <code>t *testing.T</code>。</li>
+<li>基准测试(benchmark)的参数是 <code>*testing.B</code>，TestMain 的参数是 <code>*testing.M</code> 类型。</li>
+</ul>
+<p>运行 <code>go test</code>，该 package 下所有的测试用例都会被执行。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span></span><br/><span class="line">ok      example 0.009s</span><br/></pre></td></tr></tbody></table></figure>
+<p>或 <code>go test -v</code>，<code>-v</code> 参数会显示每个用例的测试结果，另外 <code>-cover</code> 参数可以查看覆盖率。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span> -v</span><br/><span class="line">=== RUN   TestAdd</span><br/><span class="line">--- PASS: TestAdd (0.00s)</span><br/><span class="line">=== RUN   TestMul</span><br/><span class="line">--- PASS: TestMul (0.00s)</span><br/><span class="line">PASS</span><br/><span class="line">ok      example 0.007s</span><br/></pre></td></tr></tbody></table></figure>
+<p>如果只想运行其中的一个用例，例如 <code>TestAdd</code>，可以用 <code>-run</code> 参数指定，该参数支持通配符 <code>*</code>，和部分正则表达式，例如 <code>^</code>、<code>$</code>。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span> -run TestAdd -v</span><br/><span class="line">=== RUN   TestAdd</span><br/><span class="line">--- PASS: TestAdd (0.00s)</span><br/><span class="line">PASS</span><br/><span class="line">ok      example 0.007s</span><br/></pre></td></tr></tbody></table></figure>
+<h2 id="3-子测试-Subtests"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#3-%E5%AD%90%E6%B5%8B%E8%AF%95-Subtests" title="3 子测试(Subtests)"></a>3 子测试(Subtests)</h2><p>子测试是 Go 语言内置支持的，可以在某个测试用例中，根据测试场景使用 <code>t.Run</code>创建不同的子测试用例：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc_test.go</span></span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	t.Run(<span class="string">"pos"</span>, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">		<span class="keyword">if</span> Mul(<span class="number">2</span>, <span class="number">3</span>) != <span class="number">6</span> {</span><br/><span class="line">			t.Fatal(<span class="string">"fail"</span>)</span><br/><span class="line">		}</span><br/><span class="line"></span><br/><span class="line">	})</span><br/><span class="line">	t.Run(<span class="string">"neg"</span>, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">		<span class="keyword">if</span> Mul(<span class="number">2</span>, <span class="number">-3</span>) != <span class="number">-6</span> {</span><br/><span class="line">			t.Fatal(<span class="string">"fail"</span>)</span><br/><span class="line">		}</span><br/><span class="line">	})</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<ul>
+<li>之前的例子测试失败时使用 <code>t.Error/t.Errorf</code>，这个例子中使用 <code>t.Fatal/t.Fatalf</code>，区别在于前者遇错不停，还会继续执行其他的测试用例，后者遇错即停。</li>
+</ul>
+<p>运行某个测试用例的子测试：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span> -run TestMul/pos -v</span><br/><span class="line">=== RUN   TestMul</span><br/><span class="line">=== RUN   TestMul/pos</span><br/><span class="line">--- PASS: TestMul (0.00s)</span><br/><span class="line">    --- PASS: TestMul/pos (0.00s)</span><br/><span class="line">PASS</span><br/><span class="line">ok      example 0.008s</span><br/></pre></td></tr></tbody></table></figure>
+<p>对于多个子测试的场景，更推荐如下的写法(table-driven tests)：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">//  calc_test.go</span></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	cases := []<span class="keyword">struct</span> {</span><br/><span class="line">		Name           <span class="keyword">string</span></span><br/><span class="line">		A, B, Expected <span class="keyword">int</span></span><br/><span class="line">	}{</span><br/><span class="line">		{<span class="string">"pos"</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>},</span><br/><span class="line">		{<span class="string">"neg"</span>, <span class="number">2</span>, <span class="number">-3</span>, <span class="number">-6</span>},</span><br/><span class="line">		{<span class="string">"zero"</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>},</span><br/><span class="line">	}</span><br/><span class="line"></span><br/><span class="line">	<span class="keyword">for</span> _, c := <span class="keyword">range</span> cases {</span><br/><span class="line">		t.Run(c.Name, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">			<span class="keyword">if</span> ans := Mul(c.A, c.B); ans != c.Expected {</span><br/><span class="line">				t.Fatalf(<span class="string">"%d * %d expected %d, but %d got"</span>,</span><br/><span class="line">					c.A, c.B, c.Expected, ans)</span><br/><span class="line">			}</span><br/><span class="line">		})</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>所有用例的数据组织在切片 <code>cases</code> 中，看起来就像一张表，借助循环创建子测试。这样写的好处有：</p>
+<ul>
+<li>新增用例非常简单，只需给 cases 新增一条测试数据即可。</li>
+<li>测试代码可读性好，直观地能够看到每个子测试的参数和期待的返回值。</li>
+<li>用例失败时，报错信息的格式比较统一，测试报告易于阅读。</li>
+</ul>
+<p>如果数据量较大，或是一些二进制数据，推荐使用相对路径从文件中读取。</p>
+<h2 id="4-帮助函数-helpers"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#4-%E5%B8%AE%E5%8A%A9%E5%87%BD%E6%95%B0-helpers" title="4 帮助函数(helpers)"></a>4 帮助函数(helpers)</h2><p>对一些重复的逻辑，抽取出来作为公共的帮助函数(helpers)，可以增加测试代码的可读性和可维护性。 借助帮助函数，可以让测试用例的主逻辑看起来更清晰。</p>
+<p>例如，我们可以将创建子测试的逻辑抽取出来：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc_test.go</span></span><br/><span class="line"><span class="keyword">package</span> main</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> <span class="string">"testing"</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">type</span> calcCase <span class="keyword">struct</span>{ A, B, Expected <span class="keyword">int</span> }</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createMulTestCase</span><span class="params">(t *testing.T, c *calcCase)</span></span> {</span><br/><span class="line">	<span class="comment">// t.Helper()</span></span><br/><span class="line">	<span class="keyword">if</span> ans := Mul(c.A, c.B); ans != c.Expected {</span><br/><span class="line">		t.Fatalf(<span class="string">"%d * %d expected %d, but %d got"</span>,</span><br/><span class="line">			c.A, c.B, c.Expected, ans)</span><br/><span class="line">	}</span><br/><span class="line"></span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	createMulTestCase(t, &amp;calcCase{<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>})</span><br/><span class="line">	createMulTestCase(t, &amp;calcCase{<span class="number">2</span>, <span class="number">-3</span>, <span class="number">-6</span>})</span><br/><span class="line">	createMulTestCase(t, &amp;calcCase{<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>}) <span class="comment">// wrong case</span></span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>在这里，我们故意创建了一个错误的测试用例，运行 <code>go test</code>，用例失败，会报告错误发生的文件和行号信息：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span></span><br/><span class="line">--- FAIL: TestMul (0.00s)</span><br/><span class="line">    calc_test.go:11: 2 * 0 expected 1, but 0 got</span><br/><span class="line">FAIL</span><br/><span class="line"><span class="built_in">exit</span> status 1</span><br/><span class="line">FAIL    example 0.007s</span><br/></pre></td></tr></tbody></table></figure>
+<p>可以看到，错误发生在第11行，也就是帮助函数 <code>createMulTestCase</code> 内部。18, 19, 20行都调用了该方法，我们第一时间并不能够确定是哪一行发生了错误。有些帮助函数还可能在不同的函数中被调用，报错信息都在同一处，不方便问题定位。因此，Go 语言在 1.9 版本中引入了 <code>t.Helper()</code>，用于标注该函数是帮助函数，报错时将输出帮助函数调用者的信息，而不是帮助函数的内部信息。</p>
+<p>修改 <code>createMulTestCase</code>，调用 <code>t.Helper()</code></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createMulTestCase</span><span class="params">(c *calcCase, t *testing.T)</span></span> {</span><br/><span class="line">    t.Helper()</span><br/><span class="line">	t.Run(c.Name, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">		<span class="keyword">if</span> ans := Mul(c.A, c.B); ans != c.Expected {</span><br/><span class="line">			t.Fatalf(<span class="string">"%d * %d expected %d, but %d got"</span>,</span><br/><span class="line">				c.A, c.B, c.Expected, ans)</span><br/><span class="line">		}</span><br/><span class="line">	})</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>运行 <code>go test</code>，报错信息如下，可以非常清晰地知道，错误发生在第 20 行。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span></span><br/><span class="line">--- FAIL: TestMul (0.00s)</span><br/><span class="line">    calc_test.go:20: 2 * 0 expected 1, but 0 got</span><br/><span class="line">FAIL</span><br/><span class="line"><span class="built_in">exit</span> status 1</span><br/><span class="line">FAIL    example 0.006s</span><br/></pre></td></tr></tbody></table></figure>
+<p>关于 <code>helper</code> 函数的 2 个建议：</p>
+<ul>
+<li>不要返回错误， 帮助函数内部直接使用 <code>t.Error</code> 或 <code>t.Fatal</code> 即可，在用例主逻辑中不会因为太多的错误处理代码，影响可读性。</li>
+<li>调用 <code>t.Helper()</code> 让报错信息更准确，有助于定位。</li>
+</ul>
+<h2 id="5-setup-和-teardown"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#5-setup-%E5%92%8C-teardown" title="5 setup 和 teardown"></a>5 setup 和 teardown</h2><p>如果在同一个测试文件中，每一个测试用例运行前后的逻辑是相同的，一般会写在 setup 和 teardown 函数中。例如执行前需要实例化待测试的对象，如果这个对象比较复杂，很适合将这一部分逻辑提取出来；执行后，可能会做一些资源回收类的工作，例如关闭网络连接，释放文件等。标准库 <code>testing</code> 提供了这样的机制：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setup</span><span class="params">()</span></span> {</span><br/><span class="line">	fmt.Println(<span class="string">"Before all tests"</span>)</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">teardown</span><span class="params">()</span></span> {</span><br/><span class="line">	fmt.Println(<span class="string">"After all tests"</span>)</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test1</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	fmt.Println(<span class="string">"I'm test1"</span>)</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test2</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	fmt.Println(<span class="string">"I'm test2"</span>)</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMain</span><span class="params">(m *testing.M)</span></span> {</span><br/><span class="line">	setup()</span><br/><span class="line">	code := m.Run()</span><br/><span class="line">	teardown()</span><br/><span class="line">	os.Exit(code)</span><br/><span class="line">}</span><br/><span class="line"></span><br/></pre></td></tr></tbody></table></figure>
+<ul>
+<li>在这个测试文件中，包含有2个测试用例，<code>Test1</code> 和 <code>Test2</code>。</li>
+<li>如果测试文件中包含函数 <code>TestMain</code>，那么生成的测试将调用 TestMain(m)，而不是直接运行测试。</li>
+<li>调用 <code>m.Run()</code> 触发所有测试用例的执行，并使用 <code>os.Exit()</code> 处理返回的状态码，如果不为0，说明有用例失败。</li>
+<li>因此可以在调用 <code>m.Run()</code> 前后做一些额外的准备(setup)和回收(teardown)工作。</li>
+</ul>
+<p>执行 <code>go test</code>，将会输出</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span></span><br/><span class="line">Before all tests</span><br/><span class="line">I<span class="string">'m test1</span></span><br/><span class="line"><span class="string">I'</span>m test2</span><br/><span class="line">PASS</span><br/><span class="line">After all tests</span><br/><span class="line">ok      example 0.006s</span><br/></pre></td></tr></tbody></table></figure>
+<h2 id="6-网络测试-Network"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#6-%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95-Network" title="6 网络测试(Network)"></a>6 网络测试(Network)</h2><h3 id="6-1-TCP-HTTP"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#6-1-TCP-HTTP" title="6.1 TCP/HTTP"></a>6.1 TCP/HTTP</h3><p>假设需要测试某个 API 接口的 handler 能够正常工作，例如 helloHandler </p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">helloHandler</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> {</span><br/><span class="line">	w.Write([]<span class="keyword">byte</span>(<span class="string">"hello world"</span>))</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>那我们可以创建真实的网络连接进行测试：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">// test code</span></span><br/><span class="line"><span class="keyword">import</span> (</span><br/><span class="line">	<span class="string">"io/ioutil"</span></span><br/><span class="line">	<span class="string">"net"</span></span><br/><span class="line">	<span class="string">"net/http"</span></span><br/><span class="line">	<span class="string">"testing"</span></span><br/><span class="line">)</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">handleError</span><span class="params">(t *testing.T, err error)</span></span> {</span><br/><span class="line">	t.Helper()</span><br/><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> {</span><br/><span class="line">		t.Fatal(<span class="string">"failed"</span>, err)</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestConn</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	ln, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:0"</span>)</span><br/><span class="line">	handleError(t, err)</span><br/><span class="line">	<span class="keyword">defer</span> ln.Close()</span><br/><span class="line"></span><br/><span class="line">	http.HandleFunc(<span class="string">"/hello"</span>, helloHandler)</span><br/><span class="line">	<span class="keyword">go</span> http.Serve(ln, <span class="literal">nil</span>)</span><br/><span class="line"></span><br/><span class="line">	resp, err := http.Get(<span class="string">"http://"</span> + ln.Addr().String() + <span class="string">"/hello"</span>)</span><br/><span class="line">	handleError(t, err)</span><br/><span class="line"></span><br/><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br/><span class="line">	body, err := ioutil.ReadAll(resp.Body)</span><br/><span class="line">	handleError(t, err)</span><br/><span class="line"></span><br/><span class="line">	<span class="keyword">if</span> <span class="keyword">string</span>(body) != <span class="string">"hello world"</span> {</span><br/><span class="line">		t.Fatal(<span class="string">"expected hello world, but got"</span>, <span class="keyword">string</span>(body))</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>net.Listen("tcp", "127.0.0.1:0")</code>：监听一个未被占用的端口，并返回 Listener。</li>
+<li>调用 <code>http.Serve(ln, nil)</code> 启动 http 服务。</li>
+<li>使用 <code>http.Get</code> 发起一个 Get 请求，检查返回值是否正确。</li>
+<li>尽量不对 <code>http</code> 和 <code>net</code> 库使用 mock，这样可以覆盖较为真实的场景。</li>
+</ul>
+<h3 id="6-2-httptest"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#6-2-httptest" title="6.2 httptest"></a>6.2 httptest</h3><p>针对 http 开发的场景，使用标准库 <code>net/http/httptest</code> 进行测试更为高效。</p>
+<p>上述的测试用例改写如下：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">// test code</span></span><br/><span class="line"><span class="keyword">import</span> (</span><br/><span class="line">	<span class="string">"io/ioutil"</span></span><br/><span class="line">	<span class="string">"net/http"</span></span><br/><span class="line">	<span class="string">"net/http/httptest"</span></span><br/><span class="line">	<span class="string">"testing"</span></span><br/><span class="line">)</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestConn</span><span class="params">(t *testing.T)</span></span> {</span><br/><span class="line">	req := httptest.NewRequest(<span class="string">"GET"</span>, <span class="string">"http://example.com/foo"</span>, <span class="literal">nil</span>)</span><br/><span class="line">	w := httptest.NewRecorder()</span><br/><span class="line">	helloHandler(w, req)</span><br/><span class="line">	bytes, _ := ioutil.ReadAll(w.Result().Body)</span><br/><span class="line"></span><br/><span class="line">	<span class="keyword">if</span> <span class="keyword">string</span>(bytes) != <span class="string">"hello world"</span> {</span><br/><span class="line">		t.Fatal(<span class="string">"expected hello world, but got"</span>, <span class="keyword">string</span>(bytes))</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>使用 httptest 模拟请求对象(req)和响应对象(w)，达到了相同的目的。</p>
+<h2 id="7-Benchmark-基准测试"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#7-Benchmark-%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95" title="7 Benchmark 基准测试"></a>7 Benchmark 基准测试</h2><p>基准测试用例的定义如下：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkName</span><span class="params">(b *testing.B)</span></span>{</span><br/><span class="line">    <span class="comment">// ...</span></span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<ul>
+<li>函数名必须以 <code>Benchmark</code> 开头，后面一般跟待测试的函数名</li>
+<li>参数为 <code>b *testing.B</code>。</li>
+<li>执行基准测试时，需要添加 <code>-bench</code> 参数。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkHello</span><span class="params">(b *testing.B)</span></span> {</span><br/><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ {</span><br/><span class="line">        fmt.Sprintf(<span class="string">"hello"</span>)</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span> -benchmem -bench .</span><br/><span class="line">...</span><br/><span class="line">BenchmarkHello-16   15991854   71.6 ns/op   5 B/op   1 allocs/op</span><br/><span class="line">...</span><br/></pre></td></tr></tbody></table></figure>
+<p>基准测试报告每一列值对应的含义如下：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> BenchmarkResult <span class="keyword">struct</span> {</span><br/><span class="line">    N         <span class="keyword">int</span>           <span class="comment">// 迭代次数</span></span><br/><span class="line">    T         time.Duration <span class="comment">// 基准测试花费的时间</span></span><br/><span class="line">    Bytes     <span class="keyword">int64</span>         <span class="comment">// 一次迭代处理的字节数</span></span><br/><span class="line">    MemAllocs <span class="keyword">uint64</span>        <span class="comment">// 总的分配内存的次数</span></span><br/><span class="line">    MemBytes  <span class="keyword">uint64</span>        <span class="comment">// 总的分配内存的字节数</span></span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>如果在运行前基准测试需要一些耗时的配置，则可以使用 <code>b.ResetTimer()</code> 先重置定时器，例如：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkHello</span><span class="params">(b *testing.B)</span></span> {</span><br/><span class="line">    ... <span class="comment">// 耗时操作</span></span><br/><span class="line">    b.ResetTimer()</span><br/><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ {</span><br/><span class="line">        fmt.Sprintf(<span class="string">"hello"</span>)</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<p>使用 <code>RunParallel</code> 测试并发性能</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkParallel</span><span class="params">(b *testing.B)</span></span> {</span><br/><span class="line">	templ := template.Must(template.New(<span class="string">"test"</span>).Parse(<span class="string">"Hello, {{.}}!"</span>))</span><br/><span class="line">	b.RunParallel(<span class="function"><span class="keyword">func</span><span class="params">(pb *testing.PB)</span></span> {</span><br/><span class="line">		<span class="keyword">var</span> buf bytes.Buffer</span><br/><span class="line">		<span class="keyword">for</span> pb.Next() {</span><br/><span class="line">			<span class="comment">// 所有 goroutine 一起，循环一共执行 b.N 次</span></span><br/><span class="line">			buf.Reset()</span><br/><span class="line">			templ.Execute(&amp;buf, <span class="string">"World"</span>)</span><br/><span class="line">		}</span><br/><span class="line">	})</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">test</span> -benchmem -bench .</span><br/><span class="line">...</span><br/><span class="line">BenchmarkParallel-16   3325430     375 ns/op   272 B/op   8 allocs/op</span><br/><span class="line">...</span><br/></pre></td></tr></tbody></table></figure>
+<h2 id="附-参考"><a class="headerlink" href="https://geektutu.com/post/quick-go-test.html#%E9%99%84-%E5%8F%82%E8%80%83" title="附 参考"></a>附 参考</h2><ul>
+<li><a href="https://geektutu.com/post/quick-gomock.html">Go Mock (gomock) 简明教程</a></li>
+<li><a href="https://golang.org/pkg/testing/" rel="noopener" target="_blank">testing - golang.org</a></li>
+<li><a href="https://about.sourcegraph.com/go/advanced-testing-in-go" rel="noopener" target="_blank">Advanced Testing in Go - sourcegraph.com</a></li>
+</ul>
+<hr style="margin-top: 2rem;"/>
+<div>
+<p>
+<span>专题: </span>
+<a href="https://geektutu.com/series/#Go%20%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B">
+<code class="post-label" key="Go 简明教程">Go 简明教程</code>
+</a>
+</p>
+<p>
+<span>本文发表于 2020-02-10，最后修改于 2023-11-15。</span>
+</p>
+<!-- 文章末尾的提示 start -->
+<p>
+                本站永久域名「 <a href="https://geektutu.com/post/quick-go-test.html">geektutu.com</a>
+                    」，也可搜索「 极客兔兔 」找到我。
+            </p>
+<!-- 文章末尾的提示 end -->
+</div>
+<hr/>
+<p name="pagination" style="font-size: 1.2em">
+<a class="float-left" href="https://geektutu.com/post/geecache.html">上一篇 « 7天用Go从零实现分布式缓存GeeCache</a>
+<a class="float-right" href="https://geektutu.com/post/geecache-day1.html">下一篇 » 动手写分布式缓存 - GeeCache第一天 LRU 缓存淘汰策略</a>
+</p>
+</article>
+<!-- 赞赏 -->
+<!--打赏-->
+<div class="col-xs-12" id="reward">
+<div class="reward-btn-wrapper">
+<div class="reward-btn text-center">赞赏支持</div>
+</div>
+<div class="reward-code text-center">
+<p class="text-center reward-tip"><strong>请我吃胡萝卜 =^_^= </strong></p>
+<div class="qr-code">
+<img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/icon.png"/>
+<img alt="ali" id="reward-ali" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAABNJJREFUeF7tnOt22zAMg5f3f+jsNJczJTGtD4bUKAv2tzQtASQIqe5O5/P5/Cf/lkHgFEKW4eKykBCyFh8hZDE+QkgIWQ2BxdZTzpDT6TR8qaqhq9ZQ5Wnj2xiyF5JzFCB7OISQG8ohBJRbOqQBqWp/gONDCMmjAk/WoOYkcqdKbrtOgsPuOYQm6IFD8qjg9d552VgxA4k0VfMnhBi3Ol9DiOpYSIeoFa9WeSUd1XtJh8zCAbksx0KGkCvtFIcQstEmX9khtGLueM2QCDJniPtypO/52bd1SAjZpjGERLJeh1yLCfH6RL6IcyPv/UrJIsCo1jWENAg4LiUdUiCgDt2qIp08xAWRTiB5iDSRYnFxkIc6AeDIpdpWXgIkWQ/JE0IAkgRIkAZdNH4UIWTTJEadLavFkz2SmCV/Y6hW5ArxBGwSE0Kaa3yHWAI2iTlECEk8I0adG2q864Jm7PnBBK32KakKsBofQsSSUgFW4z+WEGej5K7JcVDkGoUc4lY4tD4XCDoYzrhrCiHbvRpCbriQjhrVmXsqjgghHxVUL1GfVeNJ986Qpuq9qlwfkqzZIKmgOuSP6oQQAj7+JoXzsYQQvSSVqrawKi+qG5xxUldJPjRDQsgVAbWgxGPXSzj6G0OyqFGamg4R+00FjJyM1aEuLvlhCaS4SH5VKmnnoA6p5IssPIRQKm4SqV4upkP2Z4tTpJeZVRGiuhHVBKhXJ8TRkVpU96VKnJrfPhiSDpmxiRDSHMRINadDXqVMxe2QZM0Y0sRlqcaCdLKTk6xZXUMIaVAl4KlWl+S0Z0g65BWBkXdosssibe4MdeKUCADk5qDSeNVAqJ2zt8cQckNHLSJiYo6cSULIJxLiyIgzc44Mxd5aSSf0cvz8nMjmNNvrLDCE7J9PDrmsEOI7K9rtvzpDSAurjsWRoCNDd6s41TUv47JCSF9r0iF9jLoRb+0Q8nLnCtp5lhxaHZNB8hN8hkoWeaEDqvMsASyEgD+WIUBSl3LP5cRX1y7qOkke2/YSZ6I6H/WQNaPKu4PiKYAYFEJgCGkQUAunqnjSjSTmJz9yWWrrqRtNh/xDGBGiAkarQZEJNScxB9X7VVkm8XSvIWQDKQKwWiAhBHyk8TUdQtwFOc84eWhFjogb9ZtHPNTVGeIAqb5LNRAjCHjOEUKKw+YMsEnOXyGELMSJUSWr6jrVkpNDpTrUyRqoCZC/fndIGAWqQ2YIKRBwQHWe/VhCZgxL5/6HWFRCFNkXWaeahyoLOhjSZL04slEia5Vmh5AeA08/DyF9wFCHENeharNazWQNTk7qgu77VOP7VFwjQsgNKRVgNT6ENAgQqVQBVuOnEaK6C7JwVWrIUCdXMBQkJY5I614+WbJCyD49IcT4iEKpfBr7XxBSnT2I9pNnHQeoXhw6cnrIZc2QLAKqOotIpZJf84YQ8Js+MrBDiGgzSVeQGNKxlWSR6icxZL6QAllGshw5CiHif7XngJ0OaRAgQJJWJYNTlRQyQyq3U5FM3BHZL8mzJ1/ywVBdVAi5IkYLPIRsVNiMQT6UELUrVAki+ckhcdSAJ+sh928kz3MM6pAjibeecSovhAA3pRIVQvqIve0zoP7SvjMihCzGewgJIYshsNhy0iEhZDEEFltOOmQxQv4CsLYDXC0W9dQAAAAASUVORK5CYII="/>
+<p><small>支付宝</small></p>
+</div>
+<div class="qr-code">
+<img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/icon.png"/>
+<img alt="wechat" id="reward-wechat" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAABMdJREFUeF7tnet2AjEIhOv7P7Q93tpUF/NNIBq305+VJWQGBpL1tIfj8Xj88s8yCBxMyDJcnAMxIWvxYUIW48OEmJDVEFgsnrCHHA6H8lDJQNeu29qT30cBR+tGe4zWrQLkGQ4mZANlE9KAQipBBWx3FUKkJirnDMAqkG0MRO6IBEXxk2dbG+oHSZYJuUA7A4d7Yk1IJ9VpZvcqhvqRCSHTV5VckJInk1LkJ5K4zLpZ2TQhVwRJv8oME66Q4BI7U1G7JiQjfUQWMnL0LyXLhGyPAW/rISZkMUKILPRGydPntFnefGUSYdc9xIS4Qs4I7K5CiIyQ7CfjZwY8Eie5ClElMVqX+pGbOtmoCXlEyYSAzPnYCgF7Qybkjqvqun6GH7RJYLTkG8MZgM0mHGCNTExIc6+VSQSENjAaIgT4LTNRp6nMwrS5ZtbIPLvENxdNyC+FJiSTzhOeRecQdV31zqf1rzbmKLZ3+SHrPsPThHSyjQCsDgompPkWplq9yxASXX9USUTmHbYKkhozkVBiQ+K8jw01dXUKypSw+iyxNyFAIlwh22kiN3VShqSi1JKPJDQTD7lcJOsSeadrmRBhpienfPKep3TKymSkquUzZC2qTMLLWwmJAqySIxUY0rwzyULIJwmlStzQlEU0kgSbKWcTEiDsCnkEhlRXaVNXT7dEj4nPKgki1aVKqCrpJkR8KWVCAsDU8wnpS7uoEDItEDBUP7S0e7JIel1GNnvrnz4nkjs0ZVVlGPFjQgACBEiiwcQPCIckZ+oro0Q2SRClFULkaIYNkRECWGYUJYmjEkLsTzZld1kEJGJjQoJUmpH9JqRfJ/ILqozGZyYfsi65/JtxDZSRx9Ipq8/3XwsT0kfMFdLH6MdCnZrUisVN/ZWNNsJHjUH1UyWJqgpgycqMfplMUoEUEvxsqsZGbhrUvvSMfDT2qtmpblrNKmKvEvtRFUI2p2ZS5JNUpkq4msFq1RF8aD9BFUIWNCGPKI0kjgmpKocNP9MIIQcfsq+RAInfmw2VhS2fGalUFeTZnlCFmJALhJnhhiaWCbkitesKISMkzZieHGVkSp30yLRG1KT0HJIJSiWBTG4mpEGJXNFnSDAhAdjqdESIIjaZaqzyTxJKxad0yiISQcAgNibEFUIK4sHmJRUyFJnwEKk04k4dVzNVl3mW7he9oCLAqDY0wJ5fE9JDCH5uQraBQid1iHHXjFw9zLbJ+Ce9IptoJmQjjTLAm5Dgf2WpoLa8qM8S+658XA1QhWTupjIZQ57NnGcyQM6I7cSJCbllZvDHDqLMNiEv/PcTRBGWIYR844NIATk/RLpOsjayIdfjVO9H7Uqv303IKA2/z5mQBkNXiPiXgWZLGekPRBKJH3UCHJqyXilZ6qm6CsgqPyYkQJJMRKQzqH52TQi5+iZTGQFJtamq5I+SLBMCmjGZ9UmTJucWEyJeJaiNMDMcEGlS4yE9RPWp9pwhyVIDJxWiVpoJCe6RCDkm5IISObfgCiHAExu1V0R9o2qqySRLVKUjMvVnn8eAOqLxhISqwFXwSEaqPlVpJTHc+0TvQ1TgZwSugkfAUH3O2BcmpIoE+9EQeNv3srQw/4+1CVmMaxNiQhZDYLFwXCEmZDEEFgvnG2ucnFzI1EP6AAAAAElFTkSuQmCC"/>
+<p><small>微信</small></p>
+</div>
+</div>
+</div>
+<div class="col-xs-12 text-center" style="margin-top: 30px;">
+<a href="https://github.com/geektutu" rel="noopener" style="display:inline-block;" target="_blank" title="Github"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/github.png"/></a>
+<a href="https://geektutu.com/feed.xml" style="display:inline-block;" title="RSS"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/rss.jpg"/></a>
+<a href="https://www.zhihu.com/people/gzdaijie" rel="noopener" style="display:inline-block;" target="_blank" title="知乎"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/zhihu.png"/></a>
+<a href="https://weibo.com/geektutu" rel="noopener" style="display:inline-block;" target="_blank" title="微博"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/weibo.jpg"/></a>
+</div>
+<!-- 推荐阅读三篇文章 -->
+<div class="col-xs-12">
+<h3>推荐阅读</h3>
+<div class="post-preview">
+<div class="post-img" style="background-image: url('/post/gee/gee.jpg')"></div>
+<div class="post-info">
+<div class="post-info-center">
+<div class="hidden-xs">
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#Go" title="Go">Go</a>
+<span>/</span>
+</div>
+<a class="title" href="https://geektutu.com/post/gee-day2.html">
+                Go语言动手写Web框架 - Gee第二天 上下文Context
+            </a>
+<p class="text-gray">
+<small>
+<span>发表于2019-08-19，</span>
+<span class="hidden-xs">全文6819字，</span>
+<span>阅读约23分钟</span>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="post-preview">
+<div class="post-img" style="background-image: url('/post/quick-go2/go2.jpg')"></div>
+<div class="post-info">
+<div class="post-info-center">
+<div class="hidden-xs">
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#Go" title="Go">Go</a>
+<span>/</span>
+</div>
+<a class="title" href="https://geektutu.com/post/quick-go2.html">
+                Go2 新特性简明教程
+            </a>
+<p class="text-gray">
+<small>
+<span>发表于2019-08-15，</span>
+<span class="hidden-xs">全文4860字，</span>
+<span>阅读约17分钟</span>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="post-preview">
+<div class="post-img" style="background-image: url('/post/tensorflow-mnist-save-ckpt/save_ckpt.png')"></div>
+<div class="post-info">
+<div class="post-info-center">
+<div class="hidden-xs">
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" title="机器学习">机器学习</a>
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#Python" title="Python">Python</a>
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#TensorFlow" title="TensorFlow">TensorFlow</a>
+<span>/</span>
+<a class="text-gray" href="https://geektutu.com/tags/#mnist" title="mnist">mnist</a>
+<span>/</span>
+</div>
+<a class="title" href="https://geektutu.com/post/tensorflow-mnist-save-ckpt.html">
+                TensorFlow入门(二) - mnist手写数字识别(模型保存加载)
+            </a>
+<p class="text-gray">
+<small>
+<span>发表于2017-12-17，</span>
+<span class="hidden-xs">全文5793字，</span>
+<span>阅读约20分钟</span>
+</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-12">
+<!-- 标签列表 -->
+<!-- Featured Tags -->
+<div id="featured-tag">
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E5%85%B3%E4%BA%8E%E6%88%91" rel="9" title="关于我">#关于我 (9) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Go" rel="48" title="Go">#Go (48) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E7%99%BE%E5%AE%9D%E7%AE%B1" rel="2" title="百宝箱">#百宝箱 (2) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Cheat%20Sheet" rel="1" title="Cheat Sheet">#Cheat Sheet (1) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Go%E8%AF%AD%E8%A8%80%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%96%E7%A8%8B" rel="20" title="Go语言高性能编程">#Go语言高性能编程 (20) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E5%8F%8B%E9%93%BE" rel="1" title="友链">#友链 (1) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Pandas" rel="3" title="Pandas">#Pandas (3) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" rel="9" title="机器学习">#机器学习 (9) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Python" rel="10" title="Python">#Python (10) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Rust" rel="1" title="Rust">#Rust (1) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#TensorFlow" rel="9" title="TensorFlow">#TensorFlow (9) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#mnist" rel="5" title="mnist">#mnist (5) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0" rel="3" title="强化学习">#强化学习 (3) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#OpenAI%20gym" rel="4" title="OpenAI gym">#OpenAI gym (4) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#DQN" rel="1" title="DQN">#DQN (1) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#Q-Learning" rel="1" title="Q-Learning">#Q-Learning (1) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#TensorFlow%202" rel="10" title="TensorFlow 2">#TensorFlow 2 (10) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3" rel="10" title="官方文档">#官方文档 (10) </a>
+<a class="post-tag-item" href="https://geektutu.com/tags/#CNN" rel="1" title="CNN">#CNN (1) </a>
+</div>
+</div>
+<!-- 评论 -->
+<div class="col-xs-12">
+<div class="col-xs-12 padding-0">
+<div id="gitalk-container"><div class="gt-container" style="margin-top: 50px;"><div class="gt-meta"><span class="gt-counts"><a class="gt-link gt-link-counts" href="https://github.com/geektutu/blog/issues/61" rel="noopener noreferrer" target="_blank">6</a> comments</span><div class="gt-user"><div class="gt-user-inner"><span class="gt-user-name">Anonymous</span><span class="gt-ico gt-ico-arrdown"><span class="gt-svg"><svg p-id="1619" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M511.872 676.8c-0.003 0-0.006 0-0.008 0-9.137 0-17.379-3.829-23.21-9.97l-251.277-265.614c-5.415-5.72-8.743-13.464-8.744-21.984 0-17.678 14.33-32.008 32.008-32.008 9.157 0 17.416 3.845 23.25 10.009l228.045 241.103 228.224-241.088c5.855-6.165 14.113-10.001 23.266-10.001 8.516 0 16.256 3.32 21.998 8.736 12.784 12.145 13.36 32.434 1.264 45.233l-251.52 265.6c-5.844 6.155-14.086 9.984-23.223 9.984-0.025 0-0.051 0-0.076 0z" p-id="1620"></path></svg></span></span></div></div></div><div class="gt-header"><a class="gt-avatar-github"><span class="gt-ico gt-ico-github"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M64 524C64 719.602 189.356 885.926 364.113 947.017 387.65799 953 384 936.115 384 924.767L384 847.107C248.118 863.007 242.674 773.052 233.5 758.001 215 726.501 171.5 718.501 184.5 703.501 215.5 687.501 247 707.501 283.5 761.501 309.956 800.642 361.366 794.075 387.658 787.497 393.403 763.997 405.637 743.042 422.353 726.638 281.774 701.609 223 615.67 223 513.5 223 464.053 239.322 418.406 271.465 381.627 251.142 320.928 273.421 269.19 276.337 261.415 334.458 256.131 394.888 302.993 399.549 306.685 432.663 297.835 470.341 293 512.5 293 554.924 293 592.81 297.896 626.075 306.853 637.426 298.219 693.46 258.054 747.5 262.966 750.382 270.652 772.185 321.292 753.058 381.083 785.516 417.956 802 463.809 802 513.5 802 615.874 742.99 701.953 601.803 726.786 625.381 750.003 640 782.295 640 818.008L640 930.653C640.752 939.626 640 948.664978 655.086 948.665 832.344 888.962 960 721.389 960 524 960 276.576 759.424 76 512 76 264.577 76 64 276.576 64 524Z"></path>
+</svg>
+</span></span></a><div class="gt-header-comment"><textarea class="gt-header-textarea" placeholder="Leave a comment" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 72px;"></textarea><div class="gt-header-preview markdown-body hide"></div><div class="gt-header-controls"><a class="gt-header-controls-tip" href="https://guides.github.com/features/mastering-markdown/" rel="noopener noreferrer" target="_blank"><span class="gt-ico gt-ico-tip"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 366.949535c-16.065554 0-29.982212 13.405016-29.982212 29.879884l0 359.070251c0 16.167882 13.405016 29.879884 29.982212 29.879884 15.963226 0 29.879884-13.405016 29.879884-29.879884L541.879884 396.829419C541.879884 380.763865 528.474868 366.949535 512 366.949535L512 366.949535z" p-id="3083"></path>
+<path d="M482.017788 287.645048c0-7.776956 3.274508-15.553912 8.80024-21.181973 5.525732-5.525732 13.302688-8.80024 21.181973-8.80024 7.776956 0 15.553912 3.274508 21.079644 8.80024 5.525732 5.62806 8.80024 13.405016 8.80024 21.181973 0 7.776956-3.274508 15.656241-8.80024 21.181973-5.525732 5.525732-13.405016 8.697911-21.079644 8.697911-7.879285 0-15.656241-3.274508-21.181973-8.697911C485.292295 303.301289 482.017788 295.524333 482.017788 287.645048L482.017788 287.645048z" p-id="3084"></path>
+<path d="M512 946.844409c-239.8577 0-434.895573-195.037873-434.895573-434.895573 0-239.8577 195.037873-434.895573 434.895573-434.895573 239.755371 0 434.895573 195.037873 434.895573 434.895573C946.895573 751.806535 751.755371 946.844409 512 946.844409zM512 126.17088c-212.740682 0-385.880284 173.037274-385.880284 385.777955 0 212.740682 173.037274 385.777955 385.880284 385.777955 212.740682 0 385.777955-173.037274 385.777955-385.777955C897.777955 299.208154 724.740682 126.17088 512 126.17088z" p-id="3085"></path>
+</svg>
+</span><span class="gt-ico-text">Markdown is supported</span></span></a><button class="gt-btn gt-btn-preview"><span class="gt-btn-text">Preview</span></button><button class="gt-btn gt-btn-login"><span class="gt-btn-text">Login with GitHub</span></button></div></div></div><div class="gt-comments"><div style="position: relative;"><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/39262642"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/wilgx0">wilgx0</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">over 3 years ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><p dir="auto">您的爱，太阳一般温暖，春风一般和煦，清泉一般甘甜。您的爱，比父爱更严峻，比母爱更细腻，比友爱更纯洁。您的爱，天下最伟大，最高洁。</p></div></div></div><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/45326345"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/karezachen">karezachen</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">almost 3 years ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><p dir="auto">写得太好啦！学习了。谢谢博主</p></div></div></div><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/25171658"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/dgqypl">dgqypl</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">over 2 years ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><p dir="auto">文中的例子有一处错误：当<code class="notranslate">t.Helper()</code>下一行接<code class="notranslate">t.Run(c.Name, func(t *testing.T) {...</code>的时候，当test case出错时，控制台输出并不会定位到出错的test case那一行代码</p></div></div></div><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/15831481"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/cyniczhi">cyniczhi</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">about 2 years ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><p dir="auto">网站挂了，求修复</p></div></div></div><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/26226051"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/FoBoHuang">FoBoHuang</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">about 2 years ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><blockquote>
+<p dir="auto"><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/dgqypl/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/dgqypl">@dgqypl</a><br/>
+文中的例子有一处错误：当<code class="notranslate">t.Helper()</code>下一行接<code class="notranslate">t.Run(c.Name, func(t *testing.T) {...</code>的时候，当test case出错时，控制台输出并不会定位到出错的test case那一行代码</p>
+</blockquote>
+<p dir="auto">我也遇到了这个问题</p></div></div></div><div class="gt-comment" style="transform-origin: center top;"><div class="gt-avatar gt-comment-avatar"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/34847989"/></div><div class="gt-comment-content"><div class="gt-comment-header"><div class="gt-comment-block-1"></div><a class="gt-comment-username" href="https://github.com/wesley2005">wesley2005</a><span class="gt-comment-text">commented</span><span class="gt-comment-date">over 1 year ago</span><a class="gt-comment-like" title="Like"><span class="gt-ico gt-ico-heart"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M527.061333 166.528A277.333333 277.333333 0 0 1 1000.618667 362.666667a277.333333 277.333333 0 0 1-81.28 196.138666l-377.173334 377.173334a42.666667 42.666667 0 0 1-60.330666 0l-377.173334-377.173334a277.376 277.376 0 0 1 392.277334-392.277333l15.061333 15.061333 15.061333-15.061333z m286.72 377.173333l45.226667-45.226666a192 192 0 0 0-135.808-327.893334 192 192 0 0 0-135.808 56.32l-45.226667 45.226667a42.666667 42.666667 0 0 1-60.330666 0l-45.226667-45.226667a192.042667 192.042667 0 0 0-271.616 271.573334L512 845.482667l301.781333-301.781334z"></path>
+</svg>
+</span></span></a><a class="gt-comment-reply" title="Reply"><span class="gt-ico gt-ico-reply"><span class="gt-svg"><svg version="1.1" viewbox="0 0 1332 1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M529.066665 273.066666 529.066665 0 51.2 477.866666 529.066665 955.733335 529.066665 675.84C870.4 675.84 1109.333335 785.066665 1280 1024 1211.733335 682.666665 1006.933335 341.333334 529.066665 273.066666"></path>
+</svg>
+</span></span></a></div><div class="gt-comment-body markdown-body"><blockquote>
+<p dir="auto"><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/dgqypl/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/dgqypl">@dgqypl</a><br/>
+文中的例子有一处错误：当<code class="notranslate">t.Helper()</code>下一行接<code class="notranslate">t.Run(c.Name, func(t *testing.T) {...</code>的时候，当test case出错时，控制台输出并不会定位到出错的test case那一行代码</p>
+</blockquote>
+<p dir="auto">在"func(t *testing.T) {"后第一行，加t.Helper()即可。</p></div></div></div></div></div></div></div>
+<div class="dis-wrapper" id="gitalk-related"><div class="dis-item"><a class="dis-item-url" href="https://geektutu.com/post/about.html?utm_source=gitalk"><h3 class="dis-item-title">关于我</h3><p class="dis-item-des">24 评论 ● 5月前</p><div class="dis-item-content"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/38663727"/><p><b><span class="dis-item-user">lling1234</span></b> —— 666</p></div></a></div><div class="dis-item"><a class="dis-item-url" href="https://geektutu.com/post/gee-day1.html?utm_source=gitalk"><h3 class="dis-item-title">Go语言动手写Web框架 - Gee第一天 http.Handler</h3><p class="dis-item-des">52 评论 ● 1天前</p><div class="dis-item-content"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/63277534"/><p><b><span class="dis-item-user">lv997</span></b> —— @ccmzd 谢谢站主提供的项目经验，我有个问题不是很懂，网上查了资料也没有找到，http.ListenAndServe(":9999", engine)第二个参数是一个interface类型，里面有有一个ServeHTTP()方法，您代码中传入了一个结构体里面有一个ServeHTTP()方法，但是并没有调用啊，怎么就执行了。结构体不是应该先赋值给接口，接口才能够调用结体中的方法吗。在下才疏学浅，想了2天，查了百度，还是觉得迷迷糊糊的，希望大神能够赐教，感激不尽 源码中 Handler 是一个接口类型 `type Handler interface { ServeHTTP(ResponseWriter, *Request) } ` 而我们`gee`的`engine`结构体实现了`Handler`里面的全部方法，因此说`engine`实现了接口`Handler`, 所以`http.ListenAndServe(addr, engine)`的`engine`就是一个接口实例啦，因此允许被传递。</p></div></a></div><div class="dis-item"><a class="dis-item-url" href="https://geektutu.com/post/gee.html?utm_source=gitalk"><h3 class="dis-item-title">7天用Go从零实现Web框架Gee教程</h3><p class="dis-item-des">16 评论 ● 3月前</p><div class="dis-item-content"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/101229747"/><p><b><span class="dis-item-user">lzb200244</span></b> —— 站长拿一个GeeMQ系列的实现吧。。。。(*❦ω❦)</p></div></a></div><div class="dis-item"><a class="dis-item-url" href="https://geektutu.com/post/geecache-day4.html?utm_source=gitalk"><h3 class="dis-item-title">动手写分布式缓存 - GeeCache第四天 一致性哈希(hash)</h3><p class="dis-item-des">40 评论 ● 1月前</p><div class="dis-item-content"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/u/50390413"/><p><b><span class="dis-item-user">zzzzzzyang</span></b> —— 你给出的代码很全面，但是我不明白你这里为什么同时使用了原子操作和锁，是否只需要其中一个即可？ 时间有点久远了，不知道你还不会不会回复:) @yuanyb 改成了基于写时复制的并发读写的形式，添加了 Remove 操作（来自评论区） ```go type Hash func(data []byte)uint32 type Map struct { sync.Mutex // 哈希函数 hash Hash // 虚拟节点倍数 replicas int // 原子地存取 keys 和 hashMap values atomic.Value // values } type values struct { // 哈希环 keys []int // 虚拟节点与真实节点的映射 hashMap map[int]string } func NewMap(replicas int, hashFunc Hash) *Map { m := &amp;Map{ replicas: replicas, hash: hashFunc, } m.values.Store(&amp;values{ hashMap: make(map[int]string), }) if m.hash == nil { m.hash = crc32.ChecksumIEEE } return m } // 添加节点 func (m *Map) Add(keys ...string) { m.Lock() defer m.Unlock() newValues := m.loadValues() for _, key := range keys { // 对每个 key(节点) 创建 m.replicas 个虚拟节点 for i := 0; i m.replicas; i++ { hash := int(m.hash([]byte(strconv.Itoa(i) + key))) newValues.keys = append(newValues.keys, hash) newValues.hashMap[hash] = key } } sort.Ints(newValues.keys) m.values.Store(newValues) } func (m *Map) Get(key string) string { values := m.loadValues() if len(values.keys) == 0 { return "" } hash := int(m.hash([]byte(key))) idx := sort.Search(len(values.keys), func(i int) bool { return values.keys[i] = hash }) // 如果 idx == len(m.keys)，说明应选择 m.keys[0]， // 因为 m.keys 是一个环状结构，用取余数的方式来处理这种情况 return values.hashMap[values.keys[idx % len(values.keys)]] } func (m *Map) Remove(key string) { m.Lock() defer m.Unlock() newValues := m.loadValues() for i := 0; i m.replicas; i++ { hash := int(m.hash([]byte(strconv.Itoa(i) + key))) idx := sort.SearchInts(newValues.keys, hash) if newValues.keys[idx] != hash { return } newValues.keys = append(newValues.keys[:idx], newValues.keys[idx+1:]...) delete(newValues.hashMap, hash) } m.values.Store(newValues) } func (m *Map) loadValues() *values { return m.values.Load().(*values) } func (m *Map) copyValues() *values { oldValues := m.loadValues() newValues := &amp;values{ keys: make([]int, len(oldValues.keys)), hashMap: make(map[int]string), } copy(newValues.keys, oldValues.keys) for k, v := range oldValues.hashMap { newValues.hashMap[k] = v } return newValues } ```</p></div></a></div><p class="dis-divide"><a href="https://geektutu.com/post/blog-experience-7.html">Gitalk Plus</a></p></div>
+</div>
+<link href="https://geektutu.com/css/gitalk.css" rel="stylesheet"/>
+</div>
+</div>
+<aside class="float-left gkt-sidebar hidden-xs hidden-sm">
+<div style="clear: both"></div>
+<div class="gkt-sidebar-wrapper gkt-sidebar-fixed">
+<section class="box-shadow">
+<div class="gkt-summary">
+<nav>
+<a class="col-xs-4" href="https://geektutu.com/">
+<span class="number">108</span><span>文章</span>
+</a>
+<a class="col-xs-4 middle" href="https://geektutu.com/series">
+<span class="number">23</span><span>专题</span>
+</a>
+<a class="col-xs-4" href="https://geektutu.com/tags">
+<span class="number">19</span><span>标签</span>
+</a>
+</nav>
+<div class="link-list">
+<a href="https://github.com/geektutu" rel="noopener" target="_blank"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/github.png"/></a>
+<a href="https://geektutu.com/feed.xml"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/rss.jpg"/></a>
+<a href="https://www.zhihu.com/people/gzdaijie" rel="noopener" target="_blank"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/zhihu.png"/></a>
+<a href="https://weibo.com/geektutu" rel="noopener" target="_blank"><img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/img/related_links/weibo.jpg"/></a>
+</div>
+</div></section>
+<section class="gkt-sidebar-content box-shadow" style="max-height: 400px;">
+<strong>Go 简明教程</strong>
+<ul>
+<li>
+<a class="" href="https://geektutu.com/post/quick-golang.html">Go 语言简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-gin.html">Go Gin 简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go2.html">Go2 新特性简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-protobuf.html">Go Protobuf 简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-rpc.html">Go RPC &amp; TLS 鉴权简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-wasm.html">Go WebAssembly (Wasm) 简明教程</a>
+</li>
+<li>
+<a class="gkt-sidebar-active" href="https://geektutu.com/post/quick-go-test.html">Go Test 单元测试简明教程</a>
+<!-- Table of Contents -->
+<div id="sidebar-toc">
+<!-- TOC  -->
+<ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link gkt-sidebar-active" href="https://geektutu.com/post/quick-go-test.html#1-%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BD%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-nav-text">1 如何写好单元测试</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#2-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90"><span class="toc-nav-text">2 一个简单例子</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#3-%E5%AD%90%E6%B5%8B%E8%AF%95-Subtests"><span class="toc-nav-text">3 子测试(Subtests)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#4-%E5%B8%AE%E5%8A%A9%E5%87%BD%E6%95%B0-helpers"><span class="toc-nav-text">4 帮助函数(helpers)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#5-setup-%E5%92%8C-teardown"><span class="toc-nav-text">5 setup 和 teardown</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#6-%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95-Network"><span class="toc-nav-text">6 网络测试(Network)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#7-Benchmark-%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95"><span class="toc-nav-text">7 Benchmark 基准测试</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="https://geektutu.com/post/quick-go-test.html#%E9%99%84-%E5%8F%82%E8%80%83"><span class="toc-nav-text">附 参考</span></a></li></ol>
+</div>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-gomock.html">Go Mock (gomock)简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-mmap.html">Go Mmap 文件内存映射简明教程</a>
+</li>
+<li>
+<a class="" href="https://geektutu.com/post/quick-go-context.html">Go Context 并发编程简明教程</a>
+</li>
+</ul>
+</section>
+<section class="gkt-sidebar-content box-shadow">
+<strong>最近的文章</strong>
+<ul>
+<li>
+<a href="https://geektutu.com/post/hpg-sync-cond.html">Go sync.Cond</a>
+</li>
+<li>
+<a href="https://geektutu.com/post/hpg-dead-code-elimination.html">Go 死码消除与调试(debug)模式</a>
+</li>
+<li>
+<a href="https://geektutu.com/post/hpg-sync-once.html">Go sync.Once</a>
+</li>
+</ul>
+</section>
+</div>
+</aside>
+</main>
+</div>
+<img src="/htmlfiles/Go Test 单元测试简明教程  快速入门  极客兔兔/icon/top.png"/>
+<div id="geektutu-click-img-container">
+<img alt="Big Image" src="https://geektutu.com/post/quick-go-test.html"/>
+</div>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="text-center col-xs-12">
+<p>
+<small>© 2023 - 极客兔兔 - </small>
+<small>
+<a href="http://beian.miit.gov.cn/" rel="nofollow noopener" target="_blank">沪ICP备18001798号-1</a>
+</small>
+</p>
+<p class="footer-hexo">
+<!-- 但若直接使用或修改主题，请务必保留这段声明 -->
+<small>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme
+            <a href="https://geektutu.com/" target="_blank">Geektutu</a>
+<a href="https://github.com/geektutu/hexo-theme-geektutu" rel="noopener" target="_blank">
+<img alt="Github Star" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIACIAUAMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAAAQQFBwIDBgj/2gAIAQEAAAAA9KrHSgAYL5/z6zZGuJd12uugbhq3uKtmuRtix20IS7lTLAfAAAn/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oACAECEAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAxAAAAAAAf/EADEQAAICAQIEBQEGBwAAAAAAAAECAwQFAAYREhORBxQhUlQxQVFic5KxJDJCYYGC0f/aAAgBAQABPwCFHnjWUzuvN6hV4cANSRLGjO9yRVUcSzMoA7jVXJYe5N0a2dhmk9kc0bN2GvLN8mbuNeWb5M3ca8s3yZu415Y/Jm7jXlm+TN3H/NeVPyZu40vOk3TZywK8wJ+v3EHVM/wsI/Dq2lrxN3Nnca16eti8chSAIoMbzByhMwP14kHVfwIiSaF5c96J6kwwCOTnHsYk8uvCrdmQy1TI4rJuz3cZLyGR/wCd4+YoOf8AEpUjXitubLYPG4paFsUxcuiGe7yc5gTW3LW44szXmobsi3Dhmic2+Z4+vCVH9CpraPiQ+QvbgTJrPFBWd5YpWrmNIIEXiRO32Pqt4p7cnfHk18lFBdmEVW1LVdIZGOrniTt6plrWKaO69yCykDRxwF+LMAewB0Txtr+Sf31VI8tEPw62fZt7N3Humtbpzz13ucX6CGSWMSuzpLyD1eNgeUka3PuvHbaxq3biTMHfkiSNCS78CwU+3Xg7Vu3MhuTcU6cq3Zemn3Eh2dv8Lzcut+29x1atKbHYqLJUhLwyNMwiZ3j9yDWOxUOV3tgb+3No5LDx1pi9+aeIwRlNY6bc+Jv+IFGrhLxtXJZ7VKcw81diiAAEn0JOrkWZyNfbEr0tz27UGQgkuGzXdIIvyowq99bRxk9ffO/L81SZBPZgEEroQroIxxMZOgeNsfkn99QypHGqO4Vl9CDrN4LDZkwyzyyQ2IgRHZrzGCZVP1XnQglT9oOtw4LC7iqV6uRkZoYpxKFSQpzFRw4EjVRMfSrQ1qqwxQxKFjjTgFUD7BoWYR6iVe+mtxt9Zwf9teaj4AdccPu5tedX5A/VrzUR+sy/q1CwksF19VEfDj/cnQRW+qg66cfsXtrpx+xe2unH7F7a6cfsXtrpx+xe2unH7F7a6cfsXtoxx+xe2gAAOA1//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwB//8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwB//9k="/>
+</a>
+</small>
+</p>
+<p>
+<small>
+<span id="busuanzi_container_site_pv" style="display: inline;">👁<span id="busuanzi_value_site_pv">4834674</span></span>  
+            <span id="busuanzi_container_page_pv" style="display: inline;">📚<span id="busuanzi_value_page_pv">109159</span></span>
+</small>
+</p>
+</footer>
+<!-- Baidu Tongji -->
+<!-- baidu auto push for seo -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+</body></html>

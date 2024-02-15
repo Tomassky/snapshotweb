@@ -1,0 +1,52 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: infrastructure
+  labels:
+    app: snapshotweb-v1
+  name: snapshotweb-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snapshotweb-v1
+  template:
+    metadata:
+      labels:
+        app: snapshotweb-v1
+      annotations:
+        logging.kubesphere.io/logsidecar-config: '{}'
+    spec:
+      containers:
+        - name: container-6a6bsu
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: BOTTOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: tg-bot-token
+                  key: BOTTOKEN
+          image: 'tomassky/snapshotweb-v1:latest'
+          resources:
+            requests:
+              cpu: '1'
+              memory: 2048Mi
+          ports:
+            - name: http-0
+              protocol: TCP
+              containerPort: 5000
+      serviceAccount: default
+      initContainers: []
+      volumes:
+        - name: volume-ccv78d
+          persistentVolumeClaim:
+            claimName: snapshotweb
+        - name: volume-7b7g8m
+          persistentVolumeClaim:
+            claimName: snapshotweb-db
+      imagePullSecrets: null
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%

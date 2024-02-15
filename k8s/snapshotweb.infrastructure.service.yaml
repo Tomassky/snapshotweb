@@ -1,0 +1,28 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: snapshotweb
+  namespace: infrastructure
+  labels:
+    app: snapshotweb
+  annotations:
+    kubesphere.io/creator: admin
+spec:
+  ports:
+    - name: http-0
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 31000
+  selector:
+    app: snapshotweb-v1
+  clusterIP: 10.233.10.179
+  clusterIPs:
+    - 10.233.10.179
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster

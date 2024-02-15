@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link href="cid:css-7da7f604-f602-450c-8324-917129e542bf@mhtml.blink" rel="stylesheet" type="text/css"/><link href="cid:css-4f603356-62c8-4185-884a-b27cd6dedb39@mhtml.blink" rel="stylesheet" type="text/css"/>
+<title>python 开启多个服务_mob649e8164659f的技术博客_51CTO博客</title>
+<meta content="python 开启多个服务,Python博客,51CTO博客" name="keywords"/>
+<meta content="python 开启多个服务，#Python开启多个服务在实际开发中，我们经常需要同时运行多个服务，以满足不同的需求。Python提供了多种方式来开启多个服务，本文将介绍其中的几种常见方法，并附带代码示例。##1.线程（Thread）Python中的线程是一种轻量级的执行单元，可以并发地执行多个任务。通过创建多个线程，我们可以同时运行多个服务。下面是一个使用线程开启两个服务的例子：```pyth" name="description"/> <meta content="pc" name="applicable-device"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="91C5324FE68C0A46FA65F3FEC225EA65" name="msvalidate.01"/>
+<meta content="on" http-equiv="x-dns-prefetch-control"/>
+<link href="https://cdn.51cto.com/" rel="preconnect"/>
+<link href="https://cdn.51cto.com/" rel="dns-prefetch"/>
+<link href="https://static2.51cto.com/edu/" rel="preconnect"/>
+<link href="https://static2.51cto.com/edu/" rel="dns-prefetch"/>
+<link href="https://s2.51cto.com/" rel="preconnect"/>
+<link href="https://s2.51cto.com/" rel="dns-prefetch"/>
+<link as="image" href="https://s2.51cto.com/images/100/base/empty.png?x-oss-process=image/format,webp/ignore-error,1" rel="preload"/>
+<link href="https://blog.51cto.com/u_16175500/8470510" rel="canonical"/>
+<link href="https://blog.51cto.com/favicon.ico" rel="shortcut icon" type="favicon"/>
+<link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_detailinline.min.css?v=b09bac76ea" rel="stylesheet"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_detail.min.css?v=8bd4a251ef" rel="stylesheet"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_base.min.css?v=85b4e219c9" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newIndexinline.min.css?v=4484a351cb" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_newListinline.min.css?v=e6ceec087e" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/css/pc_topicdetailinline.min.css?v=d2cfe7cec7" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_index_js.min.js?v=5331660aa2" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topic.min.js?v=873da4210c" rel="prefetch"/><link href="https://static2.51cto.com/edu/blog/blog-static/static/js/pc_topicdetail.min.js?v=901345e7d5" rel="prefetch"/></head>
+<body class="webp">
+<img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/100/blog/share_default.jpeg"/>
+<div class="Content-box" style="min-height: 7080px;">
+<div class="Content detail-content-new">
+<!--关注-->
+<div class="fixtitle">
+<div class="clearfix Page">
+<h3 class="fl title">python 开启多个服务</h3>
+<div class="messbox fr">
+<a class="follow-1 checkFollow on" id="checkFollow1_16165500">关注</a>
+<a class="name" href="https://blog.51cto.com/u_16175500" target="_blank" title="mob649e8164659f">mob649e8164659f</a>
+<strong>
+<a class="avatar" href="https://blog.51cto.com/u_16175500" target="_blank">
+<img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/noavatar_middle.gif"/>
+</a>
+</strong>
+</div>
+</div>
+</div>
+<!--大模块引入-->
+<div class="clearfix Page" id="page_center" style="position:relative;">
+<aside class="detail-content-directory common-content-directory">
+<!-- 文章目录 -->
+<section class="common-section common-spacing table-contents" style="background:none">
+<div class="clearfix common-sub-title">
+<strong title="文章目录">文章目录</strong>
+<i class="iconblog blogquxiao18" id="closeDirectory"></i>
+</div>
+<div class="directory" id="directory-parent2">
+<ul class="directory-list directory-list-left" id="directory-left">
+<li class="lv1 on">
+<div class="title">
+<span data-id="#h0">
+                                                                            第1章  
+                                                                        Python 开启多个服务                                </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h1">
+                                                                        1. 线程（Thread）                                </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h2">
+                                                                        2. 进程（Process）                                </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h3">
+                                                                        3. 协程（Coroutine）                                </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h4">
+                                                                        类图                                </span>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</aside>
+<article class="detail-content-left">
+<div class="common-section common-spacing mb30 article-detail">
+<div class="title">
+<h1>python 开启多个服务</h1>
+<span class="original">原创</span>
+</div>
+<div class="messbox">
+<p class="clearfix mess-line1">
+<a class="fl" href="https://blog.51cto.com/u_16175500" rel="nofollow">mob649e8164659f</a>
+<time class="fl" pubdate="2023-11-19 10:23:29">2023-11-19 10:23:29</time>
+<span class="fr" id="copyright-btn">©著作权</span>
+</p>
+<p class="clearfix mess-tag">
+<strong class="fl">
+<em class="fl">文章标签</em>
+<a class="fl shence_tag" href="https://blog.51cto.com/search/result?q=Python" rel="nofollow" target="_blank">Python</a>
+<a class="fl shence_tag" href="https://blog.51cto.com/topic/python-2.html" target="_blank">python</a>
+<a class="fl shence_tag" href="https://blog.51cto.com/topic/leitu.html" target="_blank">类图</a>
+</strong>
+<strong class="fl">
+<em class="fl">文章分类</em>
+<a class="fl shence_cate" href="https://blog.51cto.com/nav/python" rel="nofollow" target="_blank">Python</a>
+<a class="fl shence_cate" href="https://blog.51cto.com/nav/program" rel="nofollow" target="_blank">后端开发</a>
+</strong>
+<strong class="fl"><em class="fl">阅读数</em><b class="fl">94</b></strong></p>
+</div>
+<div class="copytext" id="copytext">
+             ©著作权归作者所有：来自51CTO博客作者mob649e8164659f的原创作品，请联系作者获取转载授权，否则将追究法律责任        </div>
+<div class="article-content-wrap">
+<div class="artical-content-bak main-content">
+<div class="con artical-content editor-preview-side" id="markdownContent"><h2 class="markdown-h" id="h0"><a id="Python__0"></a>Python 开启多个服务</h2>
+<p>在实际开发中，我们经常需要同时运行多个服务，以满足不同的需求。Python 提供了多种方式来开启多个服务，本文将介绍其中的几种常见方法，并附带代码示例。</p>
+<h3 class="markdown-h" id="h1"><a id="1_Thread_4"></a>1. 线程（Thread）</h3>
+<p>Python 中的线程是一种轻量级的执行单元，可以并发地执行多个任务。通过创建多个线程，我们可以同时运行多个服务。</p>
+<p>下面是一个使用线程开启两个服务的例子：</p>
+<div class="code-toolbar"><div class="hljs-cto"><div class="operation_box"><button class="copy_btn disable" data-clipboard-target="#code_id_0">登录后复制</button> <a class="downloadCode" title="登录后一键下载全文代码"><i class="iconblog blogimport"></i></a> </div><pre class="language-python" tabindex="0"><code class="language-python" id="code_id_0"><span class="token keyword">import</span> threading
+<span class="token keyword">import</span> time
+
+<span class="token keyword">def</span> <span class="token function">service1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 1 is running..."</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">service2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 2 is running..."</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>service1<span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>service2<span class="token punctuation">)</span>
+
+    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"All services have completed."</span><span class="token punctuation">)</span>
+</code><ul class="pre-numbering"><li>1.</li><li>2.</li><li>3.</li><li>4.</li><li>5.</li><li>6.</li><li>7.</li><li>8.</li><li>9.</li><li>10.</li><li>11.</li><li>12.</li><li>13.</li><li>14.</li><li>15.</li><li>16.</li><li>17.</li><li>18.</li><li>19.</li><li>20.</li><li>21.</li><li>22.</li><li>23.</li><li>24.</li></ul></pre></div><div class="toolbar"></div></div>
+<p>在上面的代码中，我们定义了两个服务 <code>service1</code> 和 <code>service2</code>，它们分别打印出一些信息并休眠一秒钟。通过创建两个线程，分别运行这两个服务，我们可以同时执行它们。</p>
+<h3 class="markdown-h" id="h2"><a id="2_Process_39"></a>2. 进程（Process）</h3>
+<p>与线程相比，进程是更加独立的执行单元。通过创建多个进程，我们可以实现更高级的并发效果。</p>
+<p>下面是一个使用进程开启两个服务的例子：</p>
+<div class="code-toolbar"><div class="hljs-cto"><div class="operation_box"><button class="copy_btn disable" data-clipboard-target="#code_id_1">登录后复制</button> <a class="downloadCode" title="登录后一键下载全文代码"><i class="iconblog blogimport"></i></a> </div><pre class="language-python" tabindex="0"><code class="language-python" id="code_id_1"><span class="token keyword">import</span> multiprocessing
+<span class="token keyword">import</span> time
+
+<span class="token keyword">def</span> <span class="token function">service1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 1 is running..."</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">service2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 2 is running..."</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    p1 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target<span class="token operator">=</span>service1<span class="token punctuation">)</span>
+    p2 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target<span class="token operator">=</span>service2<span class="token punctuation">)</span>
+
+    p1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    p2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    p1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    p2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"All services have completed."</span><span class="token punctuation">)</span>
+</code><ul class="pre-numbering"><li>1.</li><li>2.</li><li>3.</li><li>4.</li><li>5.</li><li>6.</li><li>7.</li><li>8.</li><li>9.</li><li>10.</li><li>11.</li><li>12.</li><li>13.</li><li>14.</li><li>15.</li><li>16.</li><li>17.</li><li>18.</li><li>19.</li><li>20.</li><li>21.</li><li>22.</li><li>23.</li><li>24.</li></ul></pre></div><div class="toolbar"></div></div>
+<p>在上面的代码中，我们使用 <code>multiprocessing</code> 模块创建了两个进程，分别运行 <code>service1</code> 和 <code>service2</code> 两个服务。</p>
+<h3 class="markdown-h" id="h3"><a id="3_Coroutine_74"></a>3. 协程（Coroutine）</h3>
+<p>协程是一种更加轻量级的并发模型，它可以在同一个线程中切换执行上下文，实现并发执行的效果。</p>
+<p>下面是一个使用协程开启两个服务的例子：</p>
+<div class="code-toolbar"><div class="hljs-cto"><div class="operation_box"><button class="copy_btn disable" data-clipboard-target="#code_id_2">登录后复制</button> <a class="downloadCode" title="登录后一键下载全文代码"><i class="iconblog blogimport"></i></a> </div><pre class="language-python" tabindex="0"><code class="language-python" id="code_id_2"><span class="token keyword">import</span> asyncio
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">service1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 1 is running..."</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">service2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Service 2 is running..."</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    tasks <span class="token operator">=</span> <span class="token punctuation">[</span>
+        asyncio<span class="token punctuation">.</span>ensure_future<span class="token punctuation">(</span>service1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        asyncio<span class="token punctuation">.</span>ensure_future<span class="token punctuation">(</span>service2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+
+    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    loop<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"All services have completed."</span><span class="token punctuation">)</span>
+</code><ul class="pre-numbering"><li>1.</li><li>2.</li><li>3.</li><li>4.</li><li>5.</li><li>6.</li><li>7.</li><li>8.</li><li>9.</li><li>10.</li><li>11.</li><li>12.</li><li>13.</li><li>14.</li><li>15.</li><li>16.</li><li>17.</li><li>18.</li><li>19.</li><li>20.</li><li>21.</li><li>22.</li><li>23.</li><li>24.</li><li>25.</li></ul></pre></div><div class="toolbar"></div></div>
+<p>在上面的代码中，我们使用 <code>asyncio</code> 模块创建了两个协程，分别运行 <code>service1</code> 和 <code>service2</code> 两个服务。通过 <code>asyncio.wait</code> 方法等待所有协程完成，我们可以实现异步并发执行的效果。</p>
+<h3 class="markdown-h" id="h4"><a id="_110"></a>类图</h3>
+<p>下面是一个简单的类图，表示了本文中介绍的三种方法的关系：</p>
+<div class="cto-mermaid" id="render_51_324474086"><svg aria-roledescription="classDiagram" id="render_51_324474086-svg" role="graphics-document document" style="max-width: 382.828125px;" viewbox="0 0 382.828125 182" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>#render_51_324474086-svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#render_51_324474086-svg .error-icon{fill:#552222;}#render_51_324474086-svg .error-text{fill:#552222;stroke:#552222;}#render_51_324474086-svg .edge-thickness-normal{stroke-width:2px;}#render_51_324474086-svg .edge-thickness-thick{stroke-width:3.5px;}#render_51_324474086-svg .edge-pattern-solid{stroke-dasharray:0;}#render_51_324474086-svg .edge-pattern-dashed{stroke-dasharray:3;}#render_51_324474086-svg .edge-pattern-dotted{stroke-dasharray:2;}#render_51_324474086-svg .marker{fill:#333333;stroke:#333333;}#render_51_324474086-svg .marker.cross{stroke:#333333;}#render_51_324474086-svg svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#render_51_324474086-svg g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:10px;}#render_51_324474086-svg g.classGroup text .title{font-weight:bolder;}#render_51_324474086-svg .nodeLabel,#render_51_324474086-svg .edgeLabel{color:#131300;}#render_51_324474086-svg .edgeLabel .label rect{fill:#ECECFF;}#render_51_324474086-svg .label text{fill:#131300;}#render_51_324474086-svg .edgeLabel .label span{background:#ECECFF;}#render_51_324474086-svg .classTitle{font-weight:bolder;}#render_51_324474086-svg .node rect,#render_51_324474086-svg .node circle,#render_51_324474086-svg .node ellipse,#render_51_324474086-svg .node polygon,#render_51_324474086-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#render_51_324474086-svg .divider{stroke:#9370DB;stroke-width:1;}#render_51_324474086-svg g.clickable{cursor:pointer;}#render_51_324474086-svg g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#render_51_324474086-svg g.classGroup line{stroke:#9370DB;stroke-width:1;}#render_51_324474086-svg .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#render_51_324474086-svg .classLabel .label{fill:#9370DB;font-size:10px;}#render_51_324474086-svg .relation{stroke:#333333;stroke-width:1;fill:none;}#render_51_324474086-svg .dashed-line{stroke-dasharray:3;}#render_51_324474086-svg .dotted-line{stroke-dasharray:1 2;}#render_51_324474086-svg #compositionStart,#render_51_324474086-svg .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #compositionEnd,#render_51_324474086-svg .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #dependencyStart,#render_51_324474086-svg .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #dependencyStart,#render_51_324474086-svg .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #extensionStart,#render_51_324474086-svg .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #extensionEnd,#render_51_324474086-svg .extension{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #aggregationStart,#render_51_324474086-svg .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #aggregationEnd,#render_51_324474086-svg .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #lollipopStart,#render_51_324474086-svg .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg #lollipopEnd,#render_51_324474086-svg .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#render_51_324474086-svg .edgeTerminals{font-size:11px;}#render_51_324474086-svg .classTitleText{text-anchor:middle;font-size:18px;fill:#333;}#render_51_324474086-svg :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><defs><marker class="marker aggregation classDiagram" id="classDiagram-aggregationStart" markerheight="240" markerwidth="190" orient="auto" refx="0" refy="7"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker class="marker aggregation classDiagram" id="classDiagram-aggregationEnd" markerheight="28" markerwidth="20" orient="auto" refx="19" refy="7"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker class="marker extension classDiagram" id="classDiagram-extensionStart" markerheight="240" markerwidth="190" orient="auto" refx="0" refy="7"><path d="M 1,7 L18,13 V 1 Z"></path></marker></defs><defs><marker class="marker extension classDiagram" id="classDiagram-extensionEnd" markerheight="28" markerwidth="20" orient="auto" refx="19" refy="7"><path d="M 1,1 V 13 L18,7 Z"></path></marker></defs><defs><marker class="marker composition classDiagram" id="classDiagram-compositionStart" markerheight="240" markerwidth="190" orient="auto" refx="0" refy="7"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker class="marker composition classDiagram" id="classDiagram-compositionEnd" markerheight="28" markerwidth="20" orient="auto" refx="19" refy="7"><path d="M 18,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker class="marker dependency classDiagram" id="classDiagram-dependencyStart" markerheight="240" markerwidth="190" orient="auto" refx="0" refy="7"><path d="M 5,7 L9,13 L1,7 L9,1 Z"></path></marker></defs><defs><marker class="marker dependency classDiagram" id="classDiagram-dependencyEnd" markerheight="28" markerwidth="20" orient="auto" refx="19" refy="7"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker class="marker lollipop classDiagram" id="classDiagram-lollipopStart" markerheight="240" markerwidth="190" orient="auto" refx="0" refy="7"><circle cx="6" cy="7" fill="white" r="6" stroke="black"></circle></marker></defs><g class="root"><g class="clusters"></g><g class="edgePaths"><path class="edge-pattern-solid relation" d="M47.1484375,66L47.1484375,70.16666666666667C47.1484375,74.33333333333333,47.1484375,82.66666666666667,62.1640625,92.99249302712006C77.1796875,103.31831938757345,107.2109375,115.63663877514688,122.2265625,121.7957984689336L137.2421875,127.95495816272032" id="id1" marker-end="url(#classDiagram-extensionEnd)" style="fill:none"></path><path class="edge-pattern-solid relation" d="M178.796875,66L178.796875,70.16666666666667C178.796875,74.33333333333333,178.796875,82.66666666666667,178.796875,91C178.796875,99.33333333333333,178.796875,107.66666666666667,178.796875,111.83333333333333L178.796875,116" id="id2" marker-end="url(#classDiagram-extensionEnd)" style="fill:none"></path><path class="edge-pattern-solid relation" d="M323.0625,66L323.0625,70.16666666666667C323.0625,74.33333333333333,323.0625,82.66666666666667,305.9440104166667,93.2409473266183C288.8255208333333,103.81522798656992,254.58854166666666,116.63045597313982,237.47005208333334,123.03806996642477L220.3515625,129.44568395970973" id="id3" marker-end="url(#classDiagram-extensionEnd)" style="fill:none"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><rect height="0" rx="0" ry="0" width="0"></rect><text style=""><tspan class="row" dy="1em" x="0" xml:space="preserve"></tspan></text></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><rect height="0" rx="0" ry="0" width="0"></rect><text style=""><tspan class="row" dy="1em" x="0" xml:space="preserve"></tspan></text></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><rect height="0" rx="0" ry="0" width="0"></rect><text style=""><tspan class="row" dy="1em" x="0" xml:space="preserve"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="classId-Thread-0" transform="translate(47.1484375, 37)"><rect class="outer title-state" height="58" width="78.296875" x="-39.1484375" y="-29"></rect><line class="divider" x1="-39.1484375" x2="39.1484375" y1="2" y2="2"></line><line class="divider" x1="-39.1484375" x2="39.1484375" y1="18" y2="18"></line><g class="label"><text style=""><tspan class="title-row" dy="1em" x="0" xml:space="preserve"></tspan></text><text class="classTitle" style="" transform="translate( -31.6484375, -21.5)"><tspan class="title-row" dy="1em" x="0" xml:space="preserve">Thread</tspan></text></g></g><g class="node default" id="classId-Process-1" transform="translate(178.796875, 37)"><rect class="outer title-state" height="58" width="85" x="-42.5" y="-29"></rect><line class="divider" x1="-42.5" x2="42.5" y1="2" y2="2"></line><line class="divider" x1="-42.5" x2="42.5" y1="18" y2="18"></line><g class="label"><text style=""><tspan class="title-row" dy="1em" x="0" xml:space="preserve"></tspan></text><text class="classTitle" style="" transform="translate( -35, -21.5)"><tspan class="title-row" dy="1em" x="0" xml:space="preserve">Process</tspan></text></g></g><g class="node default" id="classId-Coroutine-2" transform="translate(323.0625, 37)"><rect class="outer title-state" height="58" width="103.53125" x="-51.765625" y="-29"></rect><line class="divider" x1="-51.765625" x2="51.765625" y1="2" y2="2"></line><line class="divider" x1="-51.765625" x2="51.765625" y1="18" y2="18"></line><g class="label"><text style=""><tspan class="title-row" dy="1em" x="0" xml:space="preserve"></tspan></text><text class="classTitle" style="" transform="translate( -44.265625, -21.5)"><tspan class="title-row" dy="1em" x="0" xml:space="preserve">Coroutine</tspan></text></g></g><g class="node default" id="classId-asyncio-3" transform="translate(178.796875, 145)"><rect class="outer title-state" height="58" width="83.109375" x="-41.5546875" y="-29"></rect><line class="divider" x1="-41.5546875" x2="41.5546875" y1="2" y2="2"></line><line class="divider" x1="-41.5546875" x2="41.5546875" y1="18" y2="18"></line><g class="label"><text style=""><tspan class="title-row" dy="1em" x="0" xml:space="preserve"></tspan></text><text class="classTitle" style="" transform="translate( -34.0546875, -21.5)"><tspan class="title-row" dy="1em" x="0" xml:space="preserve">asyncio</tspan></text></g></g></g></g></g></svg></div><p>在上面的类图中，<code>Thread</code>、<code>Process</code> 和 <code>Coroutine</code> 类分别表示了使用线程、进程和协程的方式来开启多个服务。它们都依赖于 <code>asyncio</code> 模块，通过调用其中的方法来实现并发执行。</p>
+<p>综上所述，Python 提供了多种方式来开启多个服务，包括线程、进程和协程。开发者可以根据具体需求选择合适的方法来实现并发执行的效果。希望本文对你理解并发编程有所帮助。</p>
+<p>参考文献：</p>
+<ul>
+<li>[Python threading — 线程模块](</li>
+<li>[Python multiprocessing —</li>
+</ul>
+</div>
+</div>
+<div id="asideoffset"></div>
+<div class="clearfix label-list">
+<!--            <span>本文包含：</span>-->
+<!-- -->
+<!--            <a href="" target="_blank"></a>-->
+</div>
+</div>
+<div class="action-box">
+<ul>
+<li>
+<strong blog_id="8470510" class="is-praise" type="1" userid="16165500">
+<a><i></i></a>
+<span><b class="praise-num"></b>赞</span>
+</strong>
+</li>
+<li>
+<strong class="favorites-opt">
+<a><i></i></a>
+<span><b class="favorites-num"></b>收藏</span>
+</strong>
+</li>
+<li>
+<strong class="Topraise">
+<a><i class="iconblog blogpinglun"></i></a>
+<span><b class="comments_num"></b>评论</span>
+</strong>
+</li>
+<li class="share">
+<strong class="">
+<a><i class="iconblog blogfen"></i></a>
+<span>分享</span>
+</strong>
+</li>
+<li>
+<strong class="article-report">
+<a><i class="iconblog blogjubaobeifen report-icon" style="font-size: 23px"></i></a>
+<span>举报</span>
+</strong>
+</li>
+</ul>
+</div>
+<div class="clearfix lists">
+<p class="fl"><span>上一篇：</span><a href="https://blog.51cto.com/u_16175500/8470439">python 数据库对象</a></p>
+<p class="fr"><span>下一篇：</span><a href="https://blog.51cto.com/u_16175500/8474270">windows redis 清缓存</a></p>
+</div>
+<div class="text-aticle">
+</div>
+</div>
+<div class="common-section common-spacing mb30 comment-box" id="comment">
+<div class="comment-textarea clearfix">
+<div class="avatar">
+<a class="header-img" href="https://blog.51cto.com/" target="_blank">
+<img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/noavatar_middle.gif"/>
+</a>
+</div>
+<div class="textarea-box">
+<div class="textarea-show clearfix">
+<span>提问和评论都可以，用心的回复会被更多人看到</span>
+<strong>评论</strong>
+</div>
+<div class="textarea-hide">
+<div class="top">
+<textarea class="textareadiv textareadiv-publish" id="textareadiv-publish" maxlength="500" name="" placeholder="提问和评论都可以，用心的回复会被更多人看到和认可"></textarea>
+</div>
+<div class="bot clearfix">
+<strong class="fr publish-btn" flag="1" id="publish-btn">发布评论</strong>
+</div>
+</div>
+</div>
+</div>
+<div class="comment-num" style="display:none;">
+<strong>全部评论</strong>
+<span>(<b id="CommentNum"></b>)</span>
+<span class="fr sort" order="0" type="up_num"><i class="iconblog blogzuire"></i>最热</span>
+<span class="fr sort on" order="0" type="create_time"><i class="iconblog blogzuixinblogzuixin"></i>最新</span>
+</div>
+<div class="comment-List-box"></div>
+</div>
+<section class="common-section common-spacing mb30">
+<div class="clearfix common-sub-title">
+<strong>相关文章</strong>
+</div>
+<ul class="recommend-about">
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;01" href="https://blog.51cto.com/u_16304808/9271995" target="_blank">
+<div class="tit">利用python将Excel文件拆分为多个CSV</div>
+<p> 使用Python拆分Excel文件是一项常见的任务，尤其当我们需要处理大型Excel文件时。拆分文件可以方便我们更好地管理数据，并提高处理速度。下面，将详细介绍如何使用Python轻松拆分Excel为多个CSV文件。一、准备工作在开始之前，需要确保已经安装了以下Python库：pandasopenpyxl（用于读取Excel文件）csv（用于写入CSV文件）可以使用以下命令安装这些库：pip in</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         CSV                                    </span>
+<span class="tag-item">
+                                         数据                                    </span>
+<span class="tag-item">
+                                         Python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;02" href="https://blog.51cto.com/hywing/8921164" target="_blank">
+<div class="tit">GitHub two-factor authentication开启教程</div>
+<p> GitHub two-factor authentication开启教程</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         GitHub                                    </span>
+<span class="tag-item">
+                                         2FA                                    </span>
+<span class="tag-item">
+                                         登录验证                                    </span>
+<span class="tag-item">
+                                         two-factor                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;03" href="https://blog.51cto.com/u_16177816/8844124" target="_blank">
+<div class="tit">C# 多个文件生成zip</div>
+<p> /// &lt;summary&gt;/// 多文件处理 压缩/// &lt;/summary&gt;/// &lt;param name="files"&gt;多个文件的物理路径（带后缀）&lt;/param&gt;/// &lt;param name="ZipedFileName"&gt;压缩后的文件物理路径（带后缀）&lt;/param&gt;/// &lt;param name=</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         压缩文件                                    </span>
+<span class="tag-item">
+                                         C#                                    </span>
+<span class="tag-item">
+                                         生成压缩文件                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;04" href="https://blog.51cto.com/u_16175464/7547280" target="_blank">
+<div class="tit">python开启多个窗口</div>
+<p> # 如何使用Python开启多个窗口## 引言作为一名经验丰富的开发者，我很高兴能够帮助你学习如何使用Python开启多个窗口。在本文中，我将向你展示整个流程，并提供相应的代码和注释，帮助你理解每一步的意义和操作。## 整个流程下面是实现“Python开启多个窗口”的步骤，我将用表格形式展示给你：| 步骤 | 操作 || --- | --- || 步骤1 | 导入必要的库</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         Python                                    </span>
+<span class="tag-item">
+                                         事件循环                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;05" href="https://blog.51cto.com/duzhenwen/2852984" target="_blank">
+<div class="tit">idea开启服务的多个实例</div>
+<p> 前言阿都在学习微服务的时候，有时候需要开启某个子服务的多个实例【使用不同端口启动多个服务】，使用的是开发工具是idea，其默认不能进行并行运行程序，即第二次使用其他端口启动服务时，会自动关闭上一个服务，然后启动此次端口的服务，最终只能启动最后一次【仅仅一个】的服务。这篇文章与大家分享一下开启多个服务实例的解决方法。步骤一：配置开启并行运行设置，Run &gt;&gt; Edit Configurations勾选Allowparallel run 【允许并行运行】步骤二：启..</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         Java、IDEA                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;06" href="https://blog.51cto.com/u_16213306/9478501" target="_blank">
+<div class="tit">怎么同时开启多个redis服务</div>
+<p> 同时开启多个 Redis 服务的实际问题解决方案## 引言Redis 是一款高性能的键值存储系统，常用于缓存、消息队列、分布式锁等方面。在实际应用中，有时候需要同时开启多个 Redis 服务，以满足不同的需求。本文将介绍如何同时开启多个 Redis 服务，并提供示例代码。## 问题描述假设我们的系统需要同时使用两个 Redis 服务，一个用于缓存数据，一个用于消息队列。我们希望能够</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         Redis                                    </span>
+<span class="tag-item">
+                                         redis                                    </span>
+<span class="tag-item">
+                                         配置文件                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;07" href="https://blog.51cto.com/u_16175468/6795259" target="_blank">
+<div class="tit">linux下redis开启多个服务</div>
+<p> # 在Linux下开启多个Redis服务## 概述在Linux系统下，我们可以通过使用不同的配置文件启动多个Redis服务实例。每个实例可以独立运行、监听不同的端口，并有自己的配置和数据路径。## 流程下面是实现在Linux下开启多个Redis服务的流程：| 步骤 | 描述 || --- | --- || 1 | 复制Redis配置文件 || 2 | 修改新配置文件 ||</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         Redis                                    </span>
+<span class="tag-item">
+                                         配置文件                                    </span>
+<span class="tag-item">
+                                         redis                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;08" href="https://blog.51cto.com/zhanjq/5668242" target="_blank">
+<div class="tit">idea设置Run Dashboard同时开启多个服务</div>
+<p> 在开发工具中启动多个微服务一个一个启动效率较低，通过设置RunDashboard同时开启关闭多个微服务。可以在ViewToolWindowsRunDashboard查看是否有对应功能。image.png如果没有该功能，可以在项目目录的.idea文件夹中的workspace.xml中检索RunDashboard添加如下组件配置1234567891011121314151617&lt;componentna</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         微服务                                    </span>
+<span class="tag-item">
+                                         spring                                    </span>
+<span class="tag-item">
+                                         ide                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;09" href="https://blog.51cto.com/u_16175463/9075701" target="_blank">
+<div class="tit">windows 开启python服务</div>
+<p> # Windows开启Python服务Python是一种高级编程语言，广泛应用于各个领域，包括Web开发、数据分析、人工智能等。在Windows操作系统上，我们可以通过开启Python服务来实现在后台运行Python脚本的目的。本文将引导读者了解如何在Windows操作系统上开启Python服务，并提供相应的代码示例。## 什么是Python服务Python服务是指在Windows操作</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         Python                                    </span>
+<span class="tag-item">
+                                         Windows                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;10" href="https://blog.51cto.com/u_16213449/7730488" target="_blank">
+<div class="tit">python 多个for循环开启多线程</div>
+<p> # Python多个for循环开启多线程实现## 简介本文将介绍如何使用Python实现多个for循环开启多线程的方法。通过使用多线程，我们可以同时执行多个任务，提高程序的运行效率。## 程序流程首先，让我们来看一下整个程序的流程。```mermaidjourney    :开始 -&gt;    :导入必要的库 -&gt;    :定义多线程函数 -&gt;    :定义需要进行多线程</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         多线程                                    </span>
+<span class="tag-item">
+                                         for循环                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;11" href="https://blog.51cto.com/u_16175440/8838928" target="_blank">
+<div class="tit">python 开启本地服务</div>
+<p> # Python 开启本地服务在进行 Web 开发或测试时，我们有时需要在本地运行一个服务器来提供服务。Python 提供了一种简单的方法来开启本地服务器，本文将介绍如何使用 Python 开启本地服务。## 为什么要开启本地服务在进行 Web 开发或测试时，我们通常需要在本地运行一个服务器，以便在浏览器中访问我们的网站或应用程序。通过本地服务器，我们可以模拟真实环境中的网络请求和响应</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         本地服务                                    </span>
+<span class="tag-item">
+                                         服务器                                    </span>
+<span class="tag-item">
+                                         Python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;12" href="https://blog.51cto.com/u_16213341/7911117" target="_blank">
+<div class="tit">python 开启http服务</div>
+<p> # Python开启HTTP服务教程## 简介在本教程中，我们将学习如何使用Python开启一个简单的HTTP服务。HTTP服务是一种常见的网络服务，可以通过HTTP协议与客户端进行通信。我们将使用Python内置的`http.server`模块来实现此功能。## 整体流程下面是实现此功能的整体流程：```mermaidflowchart TD    A[导入`http.se</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         HTTP                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+<span class="tag-item">
+                                         Python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;13" href="https://blog.51cto.com/yszr/2820700" target="_blank">
+<div class="tit">IDEA中启动多个微服务（开启Services管理)</div>
+<p> 方法一、 微服务项目的开发过程中，工程会非常多，经常要启动很多个服务，才能完成一项测试。启动的多了，容易开发者带来错乱的感觉，很不方便管理。在idea作为开发工具时，推荐一个很好用的功能--Run Dashboard，新版本里面的名字改成了Services .idea &gt; workspace.xml</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         JAVA                                    </span>
+<span class="tag-item">
+                                         IDEA                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;14" href="https://blog.51cto.com/u_15785444/5705131" target="_blank">
+<div class="tit">开启启动多个tomcat</div>
+<p> 第一种方法：需配置环境变量 第一个tomcat 配置CATALINA_HO</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         java                                    </span>
+<span class="tag-item">
+                                         操作系统                                    </span>
+<span class="tag-item">
+                                         tomcat                                    </span>
+<span class="tag-item">
+                                         命令行                                    </span>
+<span class="tag-item">
+                                         windows服务                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;15" href="https://blog.51cto.com/u_15199927/5758470" target="_blank">
+<div class="tit">IDEA中管理/启动多个微服务（开启Services管理)</div>
+<p> IDEA中启动多个微服务（开启Services管理)</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         spring                                    </span>
+<span class="tag-item">
+                                         spring cloud                                    </span>
+<span class="tag-item">
+                                         spring boot                                    </span>
+<span class="tag-item">
+                                         微服务                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;16" href="https://blog.51cto.com/u_15047485/4403772" target="_blank">
+<div class="tit">单机开启多个MySQL服务</div>
+<p> 1、下载MySQL服务器（注：使用版本为MySQL社区版，版本为win-v5.7.30）。 2、确定服务的开放端口，如下： telnet localhost 3309 # 正在连接localhost...无法打开到主机的连接。 在端口 3309: 连接失败(如此，则端口可以使用) 3、复制一份m ...</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         单机多部署                                    </span>
+<span class="tag-item">
+                                         mysql                                    </span>
+<span class="tag-item">
+                                         服务端                                    </span>
+<span class="tag-item">
+                                         sql                                    </span>
+<span class="tag-item">
+                                         数据                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;17" href="https://blog.51cto.com/u_16213632/7398569" target="_blank">
+<div class="tit">python开启多个figure python 多开</div>
+<p> 我发现坛友分享的很多都是通过cmd 去start 多个微信虽然能实现多开，但不够灵活，比如我上午登录了一个微信，下午在登录就不太好用了当然也可能是我start的姿势不对。于是我就搜了下单实例原理，自己动手实现了个随用随开的。目前很多软件都限制单实例，大多数软件都是用Mutex来实现的而这个东西咱们可以用handle去干掉它，并且不影响使用。钉钉也是一样的步骤 不过Mutex的名字不一样我测试的钉钉</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         python开启多个figure                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+<span class="tag-item">
+                                         pygame                                    </span>
+<span class="tag-item">
+                                         算法                                    </span>
+<span class="tag-item">
+                                         Python                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;18" href="https://blog.51cto.com/u_16213600/7428180" target="_blank">
+<div class="tit">python开启多个zmq python怎么运行多个py文件</div>
+<p>   当我们想一次运行多个py脚本的时候你想到了什么应用场景了吗？当你想同时并行的处理一些对象时你有什么好方法吗？下面我就简单的总结一些这方面的小技巧，方便大家根据情况灵活处理。1 用一个py脚本运行多个py脚本  运行结果：  上面的python文件同在一个文件夹下。其中task1~task3是不同的内容，task1和task4是相同的内</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         python开启多个zmq                                    </span>
+<span class="tag-item">
+                                         python                                    </span>
+<span class="tag-item">
+                                         加载                                    </span>
+<span class="tag-item">
+                                         dos命令                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;19" href="https://blog.51cto.com/u_16099306/9247704" target="_blank">
+<div class="tit">开启多个docker 开启多个微信账号</div>
+<p> 现在很多人有两个微信号，一个用于私人，另一个用于工作。当我们需要在电脑上同时登录两个或多个微信的时候，一般情况下可以采取一个微信用浏览器端打开，另一个微信用电脑客户端打开的方法。如果打算多个微信账号全都用电脑客户端的话，则可以尝试以下两个方法。方法一1.退出电脑上正在运行的微信客户端，然后在电脑桌面上单击一下微信的启动图标。2.按住键盘上的Enter键，同时快速双击微信的启动图标。这时候我们看到微</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         开启多个docker                                    </span>
+<span class="tag-item">
+                                         计算机如何开启多个用户                                    </span>
+<span class="tag-item">
+                                         微信                                    </span>
+<span class="tag-item">
+                                         客户端                                    </span>
+<span class="tag-item">
+                                         启动图                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;20" href="https://blog.51cto.com/u_13354/6482464" target="_blank">
+<div class="tit">redis怎么配置多个服务器 redis开启多个端口</div>
+<p> 下载和安装过程省略,可以百度Redis windows 找到相关的文件下载安装cd 进入redis目录执行以下命令一、以默认端口启动和安装服务器1.双击exe即可启动默认端口2.服务启用1.安装服务redis-server --service-install redis.windows.conf2.启动服务redis-server --service-start3.停止服务redis-</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         redis怎么配置多个服务器                                    </span>
+<span class="tag-item">
+                                         redis                                    </span>
+<span class="tag-item">
+                                         Redis                                    </span>
+<span class="tag-item">
+                                         快捷方式                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;21" href="https://blog.51cto.com/u_16213677/9647999" target="_blank">
+<div class="tit">jenkins版本号查看 jenkins版本发布</div>
+<p>      一 jenkins是什么？Jenkins是开源CI&amp;CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要，起源于Hudson(Hudson是商用的)，主要用于持续、自动的构建/测试软件项目、监控外部任务的运行(这个比较抽象，暂且写上，不做解释)。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         jenkins版本号查看                                    </span>
+<span class="tag-item">
+                                         jenkins 部署                                    </span>
+<span class="tag-item">
+                                         Jenkins                                    </span>
+<span class="tag-item">
+                                         持续集成                                    </span>
+<span class="tag-item">
+                                         持续交付                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;22" href="https://blog.51cto.com/u_16099318/9649876" target="_blank">
+<div class="tit">python list对象查找某个属性值位置 python list查找字符串</div>
+<p> 1、布尔类型 	字符串	常用的操作方法	.count()	.find()	.join()	.encode()	.decode()#这个是bytes类型才有的	.endswith('.txt')#字符串是否以xx结尾	startswith('A')#字符串是否以xx开头	.isdigit()	.strip()	.replac('xx','')	.split(',')#以xx来分割字符串，返回的是一个</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         字符串                                    </span>
+<span class="tag-item">
+                                         取值                                    </span>
+<span class="tag-item">
+                                         mysql                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;23" href="https://blog.51cto.com/u_16099226/9650047" target="_blank">
+<div class="tit">elementui 点击增加删减 vue elementui 增删改查</div>
+<p> 1.首先获取所有的学生信息并显示在表格上，进行分页。后台要求传的参数： 后台接口封装：element-ui创建数据。必须有HTML表格&lt;el-table :data="studentData" border style="width: 100%"&gt;
+  &lt;el-table-column prop="id" label="学号"&gt;&lt;/el-table-colu</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         elementui 点击增加删减                                    </span>
+<span class="tag-item">
+                                         模态框                                    </span>
+<span class="tag-item">
+                                         数据                                    </span>
+<span class="tag-item">
+                                         分页                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="xiangguantuijian&amp;24" href="https://blog.51cto.com/u_16213563/9650064" target="_blank">
+<div class="tit">OSPF 报文认证会将 OSPF 报文一并加密以确保其安全性保密性 ospf报文的作用</div>
+<p> 一、 描述OSPF报文都有哪些，其作用？OSPF报文主要有：hello报文、DD报文、LSR报文、LSU报文和LSAck报文。Hello报文主要用来建立和维护邻居关系。DD报文是链路状态数据库的摘要信息，是以摘要的形式存在，用于两台路由器之间进行各自链路状态摘数据库的同步。LSR报文的主要作用在于两台启用OSPF协议的路由器间通过对方发送的DD报文和自己本身的链路状态摘要比较后，发现本地</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         OSPF                                    </span>
+<span class="tag-item">
+                                         链路                                    </span>
+<span class="tag-item">
+                                         数据库                                    </span>
+</div>
+</div>
+</li>
+<li>
+<div class="about-aticle-list">
+<a class="title" data-report-query="" href="https://blog.51cto.com/u_16099169/9650613" target="_blank">
+<div class="tit">java 取得对象中不为空的数据 java获取对象类全限定名</div>
+<p> 类与对象对象：描述客观事物的一个实体类：具有相同属性和方法的一组对象的集合.对象拥有类的属性和方法，是类的一个实例，就像模具与模具制作的物品之间的关系。1.1、类的定义：  访问修饰符 class 类名｛  ｝  Java 类名的命名规则：　　类名应该以下划线（_）或字母开头，最好以字母开头。第一个字母大写，如果类名由多个单词组成，则每个单词的首字母最好都大写。　　类名不能为 Java 中的关键字</p>
+</a>
+<!-- 标签页 -->
+<div class="tag-box">
+<span class="tag-item">
+                                         java protected                                    </span>
+<span class="tag-item">
+                                         java 数组参数 ...                                    </span>
+</div>
+</div>
+</li>
+</ul>
+</section>
+</article>
+<aside class="detail-content-right">
+<!--右上角统计-->
+<section class="common-section common-spacing mb24 user-intr">
+<div class="user-content">
+<div class="top">
+<div class="avatar">
+<div class="avatar-img">
+<a href="https://blog.51cto.com/u_16175500" rel="nofollow" target="_blank">
+<img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/noavatar_middle.gif"/>
+</a>
+</div>
+</div>
+<div class="clearfix username">
+<a href="https://blog.51cto.com/u_16175500" target="_blank"><span class="blog-user" style="max-width: 272px;" title="mob649e8164659f">mob649e8164659f</span></a>
+<div class="icon">
+<ul class="clearfix detail-list"></ul>
+</div>
+</div>
+</div>
+<div class="identify-list"></div>
+<div class="bottom" id="userStat"><div class="num-name num-top">
+<ul class="first-num">
+<li>
+<div class="num"><a href="https://blog.51cto.com/u_16175500/original" rel="nofollow" target="_blank">3517</a></div>
+<div class="label-name"><a href="https://blog.51cto.com/u_16175500/original" rel="nofollow" target="_blank">原创</a></div>
+</li>
+<li>
+<div class="num">132.1<span>万</span></div>
+<div class="label-name">人气</div>
+</li>
+<li>
+<div class="num"><a href="https://blog.51cto.com/u_16175500/followers" rel="nofollow" target="_blank">1<span></span></a></div>
+<div class="label-name"><a href="https://blog.51cto.com/u_16175500/followers" rel="nofollow" target="_blank">粉丝</a></div>
+</li>
+<li>
+<div class="num">7<span></span></div>
+<div class="label-name">评论</div>
+</li>
+</ul>
+</div>
+<div class="lines"></div>
+<div class="num-name num-bottom">
+<ul>
+<li>
+<div class="num"><a href="https://blog.51cto.com/u_16175500/translate" rel="nofollow" target="_blank">0</a></div>
+<div class="label-name"><a href="https://blog.51cto.com/u_16175500/translate" rel="nofollow" target="_blank">翻译</a></div>
+</li>
+<li>
+<div class="num"><a href="https://blog.51cto.com/u_16175500/reproduce" rel="nofollow" target="_blank">0</a></div>
+<div class="label-name"><a href="https://blog.51cto.com/u_16175500/reproduce" rel="nofollow" target="_blank">转载</a></div>
+</li>
+<li>
+<div class="num"><a href="https://blog.51cto.com/u_16175500/following" rel="nofollow" target="_blank">0</a></div>
+<div class="label-name"><a href="https://blog.51cto.com/u_16175500/following" rel="nofollow" target="_blank">关注</a></div>
+</li>
+<li>
+<div class="num">13</div>
+<div class="label-name">收藏</div>
+</li>
+<div class="clear"></div>
+</ul>
+</div></div>
+<div class="medal-list" id="medalListBox"><div class="medalItem item" title="知名人士"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202203/15ab11299b3053d6c281582e1acf449c18b312.png"/></div><div class="medalItem item" title="自成一派"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202203/81ba9de79b69d05f4333211abd2d0d4a008a05.png"/></div><div class="medalItem item" title="一眼万年"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202203/195f76d50ffb2cd8b16664147e48ea8edd9fd6.png"/></div><div class="medalItem item" title="锋芒毕露"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202203/f6f53e943b8feeab330770a0ec42efed855946.png"/></div><div class="medalItem item" title="一代宗师"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202202/61ba4e730b80264ca0076678a0dbd3e16f64bb.png"/></div><div class="medalItem item" title="崭露头角"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202203/31b28da6607cbc93cd900122f89b19420ac8c5.png"/></div><div class="medalItem item" title="炉火纯青"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202202/c1c0bc692d7397c63280391ec9fc97b029aa51.png"/></div><div class="medalItem item" title="博闻强识"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202202/a8ef82362559226c848000f191ce5a08f03207.png"/></div><div class="medalItem item" title="持之以恒"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202202/b67592a476d24a33731174926f050c7209f5df.png"/></div><div class="medalItem item" title="挑战自我"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/202202/03ea5c8040c00c2cbaf04751aae5540380427a.png"/></div></div>
+<div class="operating clearfix">
+<a class="follow-1 checkFollow on" id="checkFollow2_16165500" rel="nofollow">关注</a>
+<button class="sx" data="https://home.51cto.com/space?uid=16165500" id="ToSx"><a rel="nofollow"><i class="iconblog blogsixin"></i>私信</a></button>
+</div>
+</div>
+</section>
+<!-- 分类列表 -->
+<!-- 近期文章 -->
+<section class="common-section common-spacing mb24">
+<div class="clearfix common-sub-title">
+<strong title="近期文章">近期文章</strong>
+</div>
+<ul class="common-list" id="updatelist">
+<li>
+<a href="https://blog.51cto.com/u_16561377/9653865" target="_blank" title="数据结构（知识点碎片三）">1.数据结构（知识点碎片三）</a>
+</li>
+<li>
+<a href="https://blog.51cto.com/u_16237074/9653846" target="_blank" title="js 变量声明方式">2.js 变量声明方式</a>
+</li>
+<li>
+<a href="https://blog.51cto.com/u_16251183/9653841" target="_blank" title="js 标识符">3.js 标识符</a>
+</li>
+<li>
+<a href="https://blog.51cto.com/u_16298168/9653848" target="_blank" title="js 一般表达式运算">4.js 一般表达式运算</a>
+</li>
+<li>
+<a href="https://blog.51cto.com/u_14540126/9653851" target="_blank" title="如何区分javascript的对象和数组，在使用json存储时应如何使用">5.如何区分javascript的对象和数组，在使用json存储时应如何使用</a>
+</li>
+</ul>
+</section>
+<section class="common-fix">
+<!-- 新人活动 -->
+<a class="ac-box mb24" href="https://blog.51cto.com/activity-first-publish#xiang" target="_blank">
+<img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/blog/activity/bride/DetailsBride.gif"/>
+</a>
+<!-- 文章目录 -->
+<div class="common-section common-spacing table-contents common-content-directory">
+<div class="clearfix common-sub-title">
+<strong title="文章目录">文章目录</strong>
+</div>
+<div class="directory" id="directory-parent1">
+<ul class="directory-list" id="directory-right">
+<li class="lv1 on">
+<div class="title">
+<span data-id="#h0">
+                                                                                            第1章  
+                                                                                        Python 开启多个服务                                        </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h1">
+                                                                                        1. 线程（Thread）                                        </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h2">
+                                                                                        2. 进程（Process）                                        </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h3">
+                                                                                        3. 协程（Coroutine）                                        </span>
+</div>
+</li>
+<li class="lv1">
+<div class="title">
+<span data-id="#h4">
+                                                                                        类图                                        </span>
+</div>
+</li>
+<div class="arrow" style="top: 806.734px;"></div></ul>
+</div>
+<div class="table-contents"></div>
+</div>
+</section>
+</aside>
+</div>
+<!--悬浮小菜单-->
+<aside class="minmenu">
+<ul>
+<li class="signIn" signid="2">
+<button id="signIn">  每日签到</button>
+</li>
+<li class="editArticle" editid="2">
+<!-- <div class="new_bloger ">新人福利</div> -->
+<button id="editArticle"><i class="iconblog blogxiewz"></i></button>
+</li>
+<li class="feedback">
+<a href="https://blog.51cto.com/feedback?utm_medium=rightsuspension" target="_blank">意见<br/>反馈</a>
+</li>
+<li class="scrollToTop">
+<i class="iconblog bloggengduo1"></i>
+</li>
+</ul>
+</aside>
+</div>
+<!-- 蒙层 -->
+<div class="Mask"></div>
+<div class="report-dialog-root">
+<div class="report-dialog-container">
+<p class="report-dialog-title">举报文章</p>
+<div class="report-type-container model-split_top" data-type="0" id="report-specific-type">
+<p class="report-type-tit">请选择举报类型</p>
+<div class="report-type-enmu">
+<span class="report-type-item type-item_first" data-type="1">内容侵权</span>
+<span class="report-type-item type-item_first item-split" data-type="2">涉嫌营销</span>
+<span class="report-type-item type-item_first item-split" data-type="3">内容抄袭</span>
+<span class="report-type-item type-item_first item-split" data-type="4">违法信息</span>
+<span class="report-type-item type-item_first item-split" data-type="5">其他</span>
+</div>
+</div>
+<div class="report-type-container model-split_top report-hide-model" data-type="0" id="report-specific-reasons">
+<p class="report-type-tit">具体原因</p>
+<div class="report-type-enmu">
+<span class="report-type-item type-item_second" data-type="1">包含不真实信息</span>
+<span class="report-type-item type-item_second item-split" data-type="2">涉及个人隐私</span>
+</div>
+</div>
+<div class="report-type-container model-split_top report-hide-model" id="report-original-link">
+<p class="report-type-tit">原文链接（必填）</p>
+<input class="report-orgin_input" placeholder="请输入被侵权的原文链接" type="text"/>
+</div>
+<div class="report-type-container model-split_top textarea-content">
+<p class="report-type-tit">补充说明</p>
+<textarea class="report-reason_textarea" id="report-more-info" maxlength="200" placeholder="请详细描述您的举报内容"></textarea>
+<p class="report-textarea-tip"><span class="tip-left">0</span><span>/200</span></p>
+</div>
+<div class="report-type-container">
+<p class="report-type-tit">上传截图</p>
+<div class="report-img-container">
+<i class="iconblog blogtianjiabeifen report-add-icon"></i>
+<input accept="image/jpg,image/jpeg,image/png" class="repot-btn-select" name="file" type="file"/>
+</div>
+<p class="report-img_rule">格式支持JPEG/PNG/JPG，图片不超过1.9M</p>
+<div class="report-img-show">
+<img alt="" id="report-img" src="https://blog.51cto.com/u_16175500/8470510"/>
+<div class="report-img-close">
+<i class="iconblog bloga-shanchutupian report-close-icon"></i>
+</div>
+</div>
+</div>
+<div class="report-btn-container">
+<button class="report-btn-cancel">取消</button>
+<button class="report-btn-concert">确认</button>
+</div>
+<div class="report-warm-tip report-hide-model">
+            已经收到您得举报信息，我们会尽快审核
+        </div>
+</div>
+</div>
+<div class="imgViewDom disnone" style="display: none;">
+<div class="img-content"></div>
+</div>
+<!--左边悬浮操作项-->
+<aside class="action-aside action-aside-left">
+<div class="inner">
+<ul><li class="directoryBtn"><strong><a class="arrowing"><i class="iconblog bloggengduo"></i></a><span>目录</span></strong></li>
+<li>
+<strong blog_id="8470510" class="is-praise" type="1" userid="16165500">
+<a><i></i></a>
+<span><b class="praise-num"></b>赞</span>
+</strong>
+</li>
+<li>
+<strong class="favorites-opt">
+<a><i></i></a>
+<span><b class="favorites-num"></b>收藏</span>
+</strong>
+</li>
+<li>
+<strong class="Topraise">
+<a><i class="iconblog blogpinglun"></i></a>
+<span><b class="comments_num"></b>评论</span>
+</strong>
+</li>
+<li class="share">
+<strong class="">
+<a><i class="iconblog blogfen"></i></a>
+<span>分享</span>
+</strong>
+</li>
+</ul>
+</div>
+</aside>
+<div class="modal-bg">
+<div class="modal">
+<i class="iconblog blogquxiao18 close-btn"></i>
+<div class="content"></div>
+<div class="tip-box">如有误判或任何疑问，可联系 <a class="zhiCustomBtn">「小助手微信：cto51cto」</a><span class="appeal_text">申诉及反馈</span>。</div>
+<div class="know-box">
+<span class="know-btn">我知道了</span>
+</div>
+</div>
+</div>
+<div class="dialog-box">
+<div class="mask"></div>
+<div class="body">
+<div class="close" id="close"></div>
+<div id="medalListBox2"></div>
+</div>
+</div>
+<div class="dialog-box-small">
+<div class="mask"></div>
+<div class="body">
+<div class="close" id="close"></div>
+<div class="medal-list" id="medalBox2">
+</div>
+</div>
+</div></div>
+<header class="home-top">
+<div class="Page">
+<div class="top_box">
+<div class="left_nav">
+<div class="item-lf"><a class="top" data-id="1" href="https://www.51cto.com/" rel="nofollow" target="_blank"> 51CTO首页                                </a></div>
+<div class="item-lf"><a class="top" data-id="2" href="https://www.51cto.com/dev?utm_source=hometop" rel="nofollow" target="_blank"> 内容精选                                </a></div>
+<div class="item-lf"><a class="top" data-id="3" href="https://blog.51cto.com/" rel="nofollow" target="_blank"> 博客                                </a></div>
+<div class="item-lf"><a class="subweb" data-id="4" href="https://edu.51cto.com/?utm_source=hometop" rel="nofollow" target="_blank"> 学堂                                </a></div>
+<div class="item-lf hot"><a class="subweb" data-id="5" href="https://e.51cto.com/?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar" rel="nofollow" target="_blank"> 精品班                                    <span class="hot-div"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202312/22/d63741682abe5437c1859125feed3088debd88.png"/></span>
+</a></div>
+<div class="item-lf"><a class="top" data-id="33" href="https://edu.51cto.com/surl=o0bwJ2" rel="nofollow" target="_blank"> 直播训练营                                </a></div>
+<div class="item-lf"><a class="subweb" data-id="6" href="https://b.51cto.com/index?utm_source=hometop" rel="nofollow" target="_blank"> 企业培训                                </a></div>
+<div class="item-lf"><a class="subweb" data-id="7" href="https://x.51cto.com/?www" rel="nofollow" target="_blank"> CTO训练营                                </a></div>
+<div class="item-lf"><a class="subweb" data-id="9" href="https://ost.51cto.com/?utm_source=hometop" rel="nofollow" target="_blank"> 鸿蒙开发者社区                                </a></div>
+<div class="item-lf"><a class="top" data-id="10" href="https://51cto.com/wot/?utm_source=dhl" rel="nofollow" target="_blank"> WOT全球技术创新大会                                </a></div>
+</div>
+<div class="top_right">
+<div class="item-rt"><a class="search-top" href="http://so.51cto.com/?keywords=&amp;sort=time" rel="nofollow" target="_blank"><i class="iconblog blogsou blog-search"></i></a></div>
+<div class="item-rt"><span class="wechatlist" data-id="wechatImageList">公众号矩阵</span></div>
+<div class="item-rt"><span class="applist" data-id="appImageList">移动端</span></div>
+</div>
+</div>
+</div>
+<div class="nav-more-container">
+<div class="Page nav-contant-box">
+<div class="nav-contant" data-id="4">
+<a href="https://edu.51cto.com/videolist/index.html?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=dh" target="_blank">短视频</a>
+<a href="https://edu.51cto.com/courselist/index-zh5.html?utm_source=hometop" target="_blank">免费课程</a>
+<a href="https://edu.51cto.com/ranking/index.html?utm_source=hometop" target="_blank">课程排行</a>
+<a href="https://e.51cto.com/ncamp/list?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=13" target="_blank">直播课</a>
+<a href="https://e.51cto.com/rk/?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=14" target="_blank">软考学堂</a>
+</div>
+<div class="nav-contant" data-id="5">
+<a href="https://e.51cto.com/wejob/list?utm_platform=pc&amp;utm_medi-um=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar" target="_blank">全部课程</a>
+<a href="https://e.51cto.com/wejob/list?pid=5&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=41" target="_blank">厂商认证</a>
+<a href="https://e.51cto.com/wejob/list?pid=1&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=42" target="_blank">IT技术</a>
+<a href="https://e.51cto.com/rk/?utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_xyzq_rightwzl&amp;rtm_frd=07&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=43" target="_blank">2024年软考</a>
+<a href="https://e.51cto.com/wejob/list?pid=33&amp;utm_platform=pc&amp;utm_medium=51cto&amp;utm_source=zhuzhan&amp;utm_content=sy_topbar&amp;rtm_frd=44" target="_blank">PMP项目管理</a>
+<a href="https://edu.51cto.com/rk/" target="_blank">软考资讯</a>
+</div>
+<div class="nav-contant" data-id="6">
+<a href="https://b.51cto.com/index?utm_source=hometop" target="_blank">在线学习</a>
+</div>
+<div class="nav-contant" data-id="7">
+<a href="https://x.51cto.com/?www" target="_blank">CTO训练营</a>
+<a href="https://x.51cto.com/act/cto/tl" target="_blank">技术经理研习营</a>
+<a href="https://x.51cto.com/act/cto/leatech2021?www1" target="_blank">LeaTech峰会</a>
+</div>
+<div class="nav-contant" data-id="9">
+<a href="https://ost.51cto.com/postlist" target="_blank">文章</a>
+<a href="https://ost.51cto.com/resource" target="_blank">资源</a>
+<a href="https://ost.51cto.com/answerlist" target="_blank">问答</a>
+<a href="https://ost.51cto.com/study" target="_blank">课堂</a>
+<a href="https://ost.51cto.com/column" target="_blank">专栏</a>
+<a href="https://ost.51cto.com/activity" target="_blank">直播</a>
+</div>
+<div class="nav-contant wechatImageList" data-id="wechatImageList">
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/862966771f540df82857144db74b27ee5b4b23.jpeg"/></div><span class="txt">51CTO</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/d53d67c771f5cc42bac359bceb138c4cb1713b.jpg"/></div><span class="txt">鸿蒙开发者社区</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/58786f9973e5e929ef521783e1ee40413b04de.jpeg"/></div><span class="txt">51CTO技术栈</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/c77c03983d48589b1af789dfc284acb6a7c529.jpeg"/></div><span class="txt">51CTO官微</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/544d71641d983430fc9955636e625e6bb21ff9.jpeg"/></div><span class="txt">51CTO学堂</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/f1bd61e720bf669483d941a8486c124f32c451.jpeg"/></div><span class="txt">51CTO博客</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/4719e7b27bae3af5e33552481b6cb913288b01.jpeg"/></div><span class="txt">CTO训练营</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/61a991f484307eed2fe9356cc215c4d8f2dc0f.jpg"/></div><span class="txt">鸿蒙开发者社区订阅号</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202312/22/d14a8af27ec180578e0921bf0322374996d667.jpeg"/></div><span class="txt">51CTO题库小程序</span></div>
+</div>
+<div class="nav-contant appImageList" data-id="appImageList">
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/24febb8152cc24e264e642f8cb8bb515efea26.jpeg"/></div><span class="txt">51CTO学堂APP</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/43cca7d0489cc5d1f70060be760bde17d552e2.jpeg"/></div><span class="txt">51CTO学堂企业版APP</span></div>
+<div class="ewmbox"><div class="imgbox"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/oss/202302/07/c4d2220826890472539671d7c428f0c0ee9451.jpg"/></div><span class="txt">鸿蒙开发者社区视频号</span></div>
+</div>
+</div>
+</div>
+</header>
+<div class="Header" style="height:70px;">
+<div class="header-content">
+<div class="header-left">
+<div class="Logo"><a href="https://blog.51cto.com/"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/media/2024/blog/logo.png"/>
+<h2>51CTO博客</h2>
+</a></div>
+<ul class="Navigates commonhide">
+<li><a href="https://blog.51cto.com/">首页</a>
+<div class="spam-classifications" style="display:none;">
+<div class="spam-classifications-content">
+<div class="classification-ipc" id="classification-ipc"></div>
+<div class="classification-primary-list-box" id="classification-primary-list-box"></div>
+</div>
+</div>
+</li>
+<li><a href="https://blog.51cto.com/nav/following">关注</a></li>
+<li><a href="https://blog.51cto.com/ranking/hot">排行榜</a></li>
+<li class="">
+<a href="https://blog.51cto.com/cloumn/index">订阅专栏</a>
+</li>
+<li class="first"><a href="https://blog.51cto.com/activity-first-publish#shouye" target="_blank"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/100/blog/activity/first2.gif"/></a></li>
+</ul>
+</div>
+<ul class="header-right">
+<li class="search">
+<form action="https://blog.51cto.com/search/result" class="form-search" method="get" novalidate="" target="_blank">
+<input autocomplete="off" id="TopSearchInput" name="q" placeholder="搜索文章、作者" required="" type="text"/>
+<i class="iconblog bloga-shanchutupian"></i>
+<button class="iconblog blogsou" id="TopSearchBtn"></button>
+</form>
+<div class="focusSelect focusSelect_his">
+<div class="searchHistoryList">
+<div class="clearfix hishead">搜索历史
+                                <span class="clearhis"><i class="iconblog blogshanchu18"></i>清空</span>
+</div>
+<div class="hisitem-wrap"></div>
+</div>
+<div class="hotList">
+<div class="clearfix hishead">热门搜索</div>
+<div class="hot-wrap"></div>
+</div>
+</div>
+<div class="focusSelect focusSelect_key">
+<div class="keyitem-wrap">
+</div>
+<div class="clearfix checkSearchResult">
+<span>查看【</span>
+<span class="checkKey"></span>
+<span>】的结果</span>
+</div>
+</div>
+</li>
+<li class="write commonhide">
+<a id="toPublish" rel="nofollow"> <i class="iconblog blogxiewenzhang"></i>写文章</a></li>
+<li class="creative"><a href="https://blog.51cto.com/creative-center/index">创作中心</a><a class="task" href="https://blog.51cto.com/creative-center/task"></a></li>
+<li class="logins">
+<a class="clearfix" href="https://home.51cto.com/index?from_service=blog&amp;scene=login1&amp;reback=https://blog.51cto.com/u_16175500/8470510" rel="nofollow" target="_self"><span class="fl">登录</span><b class="fgline fl"></b><span class="fl">注册</span></a>
+</li>
+</ul>
+</div>
+<div class="search-mask"></div></div>
+<!-- if publish show -->
+<div class="Footer">
+<div class="Page">
+<div class="fl">
+<a class="Logo" href="https://blog.51cto.com/"><img src="/htmlfiles/python 开启多个服务_mob649e8164659f的技术博客_51CTO博客/images/100/blog/logo4.png"/></a>
+<p class="copy">Copyright © 2005-2024 <a href="https://www.51cto.com/" target="_blank">51CTO.COM</a>
+                    版权所有 京ICP证060544号</p>
+</div>
+<dl class="foot_ab fr">
+<dt>关于我们</dt>
+<dd>
+<table class="aboutList">
+<tbody><tr>
+<td><a href="https://blog.51cto.com/51ctoblog" target="_blank">官方博客</a></td>
+<td><a href="https://blog.51cto.com/nav" target="_blank">全部文章</a></td>
+<td><a href="https://blog.51cto.com/topic/all" target="_blank">热门标签</a></td>
+<td><a data-v-6e9e21b4="" href="https://blog.51cto.com/class-blog/index" target="_blank">班级博客</a></td>
+</tr>
+<tr>
+<td><a href="https://www.51cto.com/about/aboutus.html" target="_blank">了解我们</a></td>
+<td><a href="https://www.51cto.com/about/map.html" target="_blank">网站地图</a></td>
+<td><a href="https://blog.51cto.com/feedback?utm_medium=aboutus2" target="_blank">意见反馈</a></td>
+</tr>
+</tbody></table>
+</dd>
+</dl>
+<dl class="foot_link fr">
+<dt>友情链接</dt>
+<dd>
+<table class="aboutList-2">
+<tbody><tr>
+<td><a href="https://ost.51cto.com/?utm_source=blogsitemap" target="_blank">鸿蒙开发者社区</a></td>
+<td><a href="https://edu.51cto.com/" target="_blank">51CTO学堂</a></td>
+</tr>
+<tr>
+<td><a href="https://www.51cto.com/" target="_blank">51CTO</a></td>
+<td><a href="https://edu.51cto.com/rk/" target="_blank">软考资讯</a></td>
+</tr>
+</tbody></table>
+</dd>
+</dl>
+</div>
+</div>
+<div id="waf_nc_block" style="display: none;"><div class="waf-nc-mask"></div><div class="waf-nc-wrapper" id="WAF_NC_WRAPPER"><p class="waf-nc-title">访问验证</p><p class="waf-nc-description">为了更好的访问体验，请进行如下验证</p><p class="waf-nc-traceid-class" id="waf-nc-traceid"></p><div id="nocaptcha"></div></div></div><div style='background: url("https://static2.51cto.com/edu/blog/images/bg50.png") repeat; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 10000000; display: none;'><div style="z-index:10000001;width:50px;height:50px;background:url(https://static2.51cto.com/edu/blog/images/loading2.gif) no-repeat center;background-size:50px 50px;position:absolute;left:50%;top:50%;margin-left:-25px;margin-top:-25px;"></div></div></body></html>
