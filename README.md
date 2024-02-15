@@ -103,6 +103,18 @@ the service, to expose the port 31888 use the NodePort
 
 ![](/images/images-7.png)
 
+also you should push the container to the container hub
+
+```
+docker login
+docker images
+docker tag imagesID tomassky/snapshotweb-v1
+docker pull tomassky/snapshotweb-v1:latest
+docker inspect tomassky/snapshotweb-v1
+```
+
+![](/images/images-12.png)
+
 ## Note
 
 The default port is 5000, you can change it as you want
