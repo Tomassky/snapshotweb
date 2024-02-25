@@ -42,7 +42,7 @@ apt-get update
 apt-get install -y libatk-bridge2.0-0 libgtk-3.0 libasound2 libatk1.0-0 libgbm-dev libnss3-dev
 
 # Python Dependency
-pip install -r requirements.txt
+pip install -r requirements.txt/python3 setup.py install
 
 # Chrome Kenerl and Chromedriver
 wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-headless-shell-linux64.zip -P /root/
